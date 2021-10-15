@@ -1,6 +1,7 @@
 package entity;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,9 +9,10 @@ import java.util.List;
  */
 
 public class User {
-    private String userName;
+    public String userName;
     private String email;
     private String passcode;
+    public List<Ingredient> fridge;
 /*
     Stuff maybe for later as the project progresses
     private String foodPreferences;
@@ -18,9 +20,16 @@ public class User {
     private List<Recipe> createdRecipe;
 */
     // TODO: implement this class
-    public User(){
-
+    public User(String username, String password){
+        userName = username;
+        passcode = password;
+        fridge = new ArrayList<>();
     }
+
+    public String getPasscode(){
+        return passcode;
+    }
+
 
 
 
