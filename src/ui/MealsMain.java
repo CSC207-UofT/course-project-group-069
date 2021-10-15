@@ -6,9 +6,9 @@ public class MealsMain {
 
     public static void main(String[] args) {
 
-
         MealsSystem ms = new MealsSystem();
-        ms.run();
+        SystemInOut inOut = new SystemInOut();
+        ms.run(inOut);
     }
 
 
