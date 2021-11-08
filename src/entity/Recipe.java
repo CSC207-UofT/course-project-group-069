@@ -1,5 +1,4 @@
 package entity;
-
 import java.util.List;
 
 /**
@@ -7,9 +6,9 @@ import java.util.List;
  */
 
 public class Recipe {
-
-    private List<Ingredient> ingredients;
-    private String preparationDuration;
+    private String recipeName;
+    private List<String> ingredients;
+    private Integer preparationDuration;
     private String directions;
     private String difficultyScale;
     private String cuisineType;
@@ -17,7 +16,31 @@ public class Recipe {
 
 
     // TODO: implement this class
-    public Recipe(){
+    public Recipe(String recipeName, List<String> ingredients){
+        this.recipeName = recipeName;
+        this.ingredients = ingredients;
+    }
 
+    public String getRecipeName() {
+        return recipeName;
+    }
+
+    public boolean containsIngredient(String ingredient){
+        return ingredients.contains(ingredient);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder res = new StringBuilder();
+        for(String str : ingredients)
+        {
+            res.append(str);
+            res.append(", ");
+        }
+        res.deleteCharAt(res.length()-1);
+        res.deleteCharAt(res.length()-1);
+        String str = res.toString();
+        return "Recipe name = " + recipeName+
+                ", ingredients = " + str +"\n";
     }
 }
