@@ -47,6 +47,10 @@ public class UserManagerFacade {
     public void addIngredient(String ingredientName, String foodType, String storingDuration) {
         userFridgeManager.addIngredient(ingredientName, foodType, storingDuration);
     }
+
+    public void getIngredientsname(){
+        userFridgeManager.getIngredient();
+    }
 }
 
 

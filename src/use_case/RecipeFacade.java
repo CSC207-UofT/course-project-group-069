@@ -10,11 +10,11 @@ public class RecipeFacade {
     private final RecipePrinter recipeprinter;
     private final RecipeBook recipebook;
 
-    public RecipeFacade(RecipeFinder recipefinder,RecipePrinter recipeprinter,RecipeBook recipebook) {
+    public RecipeFacade() {
         this.recipes = new ArrayList<Recipe>();
-        this.recipefinder = recipefinder;
-        this.recipeprinter = recipeprinter;
-        this.recipebook = recipebook;
+        this.recipefinder = new RecipeFinder();
+        this.recipeprinter = new RecipePrinter();
+        this.recipebook = new RecipeBook();
     }
 
     public void setRecipe(List<Recipe> recipes2){

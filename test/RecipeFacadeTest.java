@@ -3,9 +3,6 @@ import entity.User;
 import org.junit.*;
 import entity.Recipe;
 import use_case.RecipeFacade;
-import use_case.RecipePrinter;
-import use_case.RecipeBook;
-import use_case.RecipeFinder;
 
 
 import static org.junit.Assert.*;
@@ -41,18 +38,14 @@ public class RecipeFacadeTest {
         r.add("q");
         Recipe z = new Recipe("z",r);
 
-        RecipeFinder recipefinder = new RecipeFinder();
-        RecipePrinter recipeprinter = new RecipePrinter();
-        RecipeBook recipebook = new RecipeBook();
-
-        RecipeFacade recipefacade = new RecipeFacade(recipefinder, recipeprinter, recipebook);
+        RecipeFacade recipefacade = new RecipeFacade();
 
         recipefacade.addRecipe(a);
         recipefacade.addRecipe(x);
         recipefacade.addRecipe(z);
 
         List<Recipe> res = recipefacade.findRecipe ("c");
-        RecipeFacade rf2 = new RecipeFacade(recipefinder,recipeprinter,recipebook);
+        RecipeFacade rf2 = new RecipeFacade();
         rf2.setRecipe(res);
         assertEquals(res.contains(a), true);
         assertEquals(res.contains(x), true);
