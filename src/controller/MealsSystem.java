@@ -104,11 +104,10 @@ public class MealsSystem {
                                 break;
                             }
                             default: {
-                                inOut.sendOutput("Here is the list from specifided: " + recipeInput);
                                 if (userManager.getUsersIngredientsName().contains(recipeInput)){
                                     inOut.sendOutput(recipeManager.findRecipe(recipeInput));
                                 }else{
-                                    inOut.sendOutput(recipeInput + " doesn't exist in your fridge.");
+                                    inOut.sendOutput(recipeInput + " doesn't exist in your fridge.\n");
                                 }
                                 break;
                             }
