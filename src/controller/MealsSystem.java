@@ -1,12 +1,15 @@
 package controller;
 
+//import com.sun.tools.javac.comp.Todo;
 import ui.SystemInOut;
 import use_case.RecipeFacade;
 import use_case.UserManagerFacade;
+import use_case.UserFridgeManager;
 
 import javax.management.remote.rmi._RMIConnection_Stub;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MealsSystem {
 
@@ -31,6 +34,7 @@ public class MealsSystem {
         //while the checker is true, keep running the loop. the checker only becomes false
         //when the user creates an account or logs in successfully.
         boolean checker = true;
+        boolean logOut = true;
         while (checker) {
             inOut.sendOutput("Please type \"Create Account\" if you are new, " +
                     "\"Login\" if you already have an account, or \"Quit\"");
@@ -64,10 +68,66 @@ public class MealsSystem {
                 inOut.sendOutput("Login Failed. Please try again"); //exception for bad login
             }
         }
+      
+        while (logOut) {
+            inOut.sendOutput("If you'd like to add an ingredient to your fridge, please type \"Add\" \n" +
+                    "If you would like to get a recipe, please type \"Recipe\" \nOr if wish to view your" +
+                    "fridge, please type \"Fridge\" \nTo logout, please type \"Logout\"" );
+            try {
+                switch (inOut.getInput()) {
+                    case "Add":{
+                        inOut.sendOutput("What ingredient would you like to add?");
+                        String name = inOut.getInput();
+                        inOut.sendOutput("What food type is it?");
+                        String foodType = inOut.getInput();
+                        inOut.sendOutput("What is it's estimated storing time?");
+                        String duration = inOut.getInput();
+                        userManager.addIngredient(name, foodType, duration);
+                        inOut.sendOutput("Successfully stored!\n\n");
+                        break;
+                    }
+                    case "Fridge":{
+                        inOut.sendOutput(userManager.getUsersIngredientsName());
+                        break;
+                    }
+                    case "Recipe":{
+                        inOut.sendOutput("If you'd like to get a recipe for a specific ingredient, " +
+                                "please type your ingredient.\nOr if you'd like to get a list of ingredients that " +
+                                "you can cook from your fridge, please type \"List\"");
+                        String recipeInput = inOut.getInput();
+                        switch (recipeInput) {
+                            case "List":{
+                                List<String> ingredients = userManager.getUsersIngredientsName();
+                                for (String ingredient : ingredients) {
+                                    inOut.sendOutput(recipeManager.findRecipe(ingredient));
+                                }
+                                break;
+                            }
+                            default: {
+                                if (userManager.getUsersIngredientsName().contains(recipeInput)){
+                                    inOut.sendOutput(recipeManager.findRecipe(recipeInput));
+                                }else{
+                                    inOut.sendOutput(recipeInput + " doesn't exist in your fridge.\n");
+                                }
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                    case "Logout":{
+                        System.out.print("Successfully logged out.");
+                        logOut = false;
+                        break;
+                    }
+                }
 
-        //Continue here
+            } catch (IOException io) {
+                inOut.sendOutput("Something went wrong, please try again."); //exception for bad login
+            }
+        }
     }
 
+  
     /**
      * @param inOut Allows communication with the user through receiving inputs and sending outputs
      * @return Returns an ArrayList containing a Username and Password based on the user's input
