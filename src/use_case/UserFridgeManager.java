@@ -18,8 +18,8 @@ public class UserFridgeManager implements CurrentUserObserver {
         Ingredient newIngredient = new Ingredient(ingredientName, foodType, storingDuration);
         currentUser.fridge.add(newIngredient);
     }
-    public List<String> getIngredient(){
-        List<String> res = new ArrayList<String>();
+    public List<String> getUsersIngredientsName(){
+        List<String> res = new ArrayList<>();
         for (Ingredient ingredient:currentUser.fridge){
             res.add(ingredient.getIngredientName());
         }

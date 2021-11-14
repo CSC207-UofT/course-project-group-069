@@ -11,7 +11,7 @@ import java.util.List;
  * hence all functionalities from those two classes are accessible from this facade.
  *
  * === Representation Invariants ===
- *  addIngredient method may only be called after a user has logged in.
+ *  addIngredient and logout method may only be called after a user has logged in.
  */
 
 public class UserManagerFacade {
@@ -36,7 +36,7 @@ public class UserManagerFacade {
     }
 
 
-    public void uploadRecipe() {}
+    // public void uploadRecipe() {}
 
     /**
      * Stores the ingredient into a User's fridge
@@ -48,9 +48,25 @@ public class UserManagerFacade {
         userFridgeManager.addIngredient(ingredientName, foodType, storingDuration);
     }
 
-    public void getIngredientsname(){
-        userFridgeManager.getIngredient();
+    /**
+     * Returns a list of ingredient names that the current user possesses in the fridge.
+     * @return List of string of ingredients
+     */
+    public List<String> getUsersIngredientsName(){
+        return userFridgeManager.getUsersIngredientsName();
     }
+
+    /**
+     * Create a new user given his/her new username and passcode.
+     * @param username a user's new username
+     * @param passcode a user's new password
+     * @throws Exception
+     */
+    public void createUser(String username, String passcode) throws Exception {
+        userManageLoginAndNewUser.createUser(username, passcode);
+    }
+
+
 }
 
 
