@@ -1,12 +1,13 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Represents an ingredient in the system
  */
 
-public class Ingredient {
+public class Ingredient implements Serializable {
 
     private String ingredientName;
     private String foodType;
