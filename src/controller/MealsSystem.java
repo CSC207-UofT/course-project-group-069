@@ -3,10 +3,10 @@ package controller;
 //import com.sun.tools.javac.comp.Todo;
 import ui.SystemInOut;
 import use_case.RecipeFacade;
-import use_case.UserFridgeManager;
 import use_case.UserManagerFacade;
+import use_case.UserFridgeManager;
 
-
+import javax.management.remote.rmi._RMIConnection_Stub;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +57,6 @@ public class MealsSystem {
                     }
                     case "Quit": {
                         inOut.sendOutput("Quit Successfully");
-                        logOut = false;
                         return;
                     }
                     default:
@@ -69,10 +68,11 @@ public class MealsSystem {
                 inOut.sendOutput("Login Failed. Please try again"); //exception for bad login
             }
         }
+      
         while (logOut) {
             inOut.sendOutput("If you'd like to add an ingredient to your fridge, please type \"Add\" \n" +
                     "If you would like to get a recipe, please type \"Recipe\" \nOr if wish to view your" +
-                    " fridge, please type \"Fridge\" \nTo logout, please type \"Logout\"" );
+                    "fridge, please type \"Fridge\" \nTo logout, please type \"Logout\"" );
             try {
                 switch (inOut.getInput()) {
                     case "Add":{
@@ -125,11 +125,9 @@ public class MealsSystem {
                 inOut.sendOutput("Something went wrong, please try again."); //exception for bad login
             }
         }
-
-
-        //Continue here
     }
 
+  
     /**
      * @param inOut Allows communication with the user through receiving inputs and sending outputs
      * @return Returns an ArrayList containing a Username and Password based on the user's input
