@@ -39,7 +39,7 @@ public class MealsSystem {
                     case "Create Account": {
                         String[] details = getDetails(inOut);
                         userManager.createUser(details[0], details[1]);
-                        checker = false;
+                        checker = !(userManager.login(details[0], details[1]));
                         inOut.sendOutput("Account Created!");
                         break;
                     }
