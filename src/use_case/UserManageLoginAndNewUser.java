@@ -2,6 +2,7 @@ package use_case;
 
 import entity.User;
 import entity.UserList;
+import gateways.GetSaveUserList;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -10,9 +11,9 @@ import java.util.List;
 
 public class UserManageLoginAndNewUser {
 
-    private UserList userList = new UserList();
     private User currentUser;
     private List<CurrentUserObserver> obs = new ArrayList<>();
+    private ReadWriter gateWay = new GetSaveUserList();
 
     public UserManageLoginAndNewUser(CurrentUserObserver observer){
         obs.add(observer);
@@ -21,13 +22,13 @@ public class UserManageLoginAndNewUser {
 
     public boolean login(String userName, String passcode) throws Exception {
 
-        FileInputStream fis = new FileInputStream("userlist.ser");
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        UserList users = (UserList) ois.readObject();
-        if (users.getUser(userName) == null) {
+
+        UserList userList = gateWay.getUserList();
+
+        if (userList.getUser(userName) == null) {
             return false;
         }
-        currentUser = users.getUser(userName);
+        currentUser = userList.getUser(userName);
         if (currentUser.getPasscode().equals(passcode)){
             this.notifyObservers(currentUser);
             return true;
@@ -35,16 +36,20 @@ public class UserManageLoginAndNewUser {
         return false;
     }
 
+    public void logOut() throws Exception {
+
+        UserList userList = gateWay.getUserList();
+        userList.add(currentUser);
+        gateWay.saveUserList(userList);
+    }
+
 
     public void createUser(String username, String passcode) throws Exception {
-        FileInputStream fis = new FileInputStream("userlist.ser");
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        UserList users = (UserList) ois.readObject();
+
+        UserList userList = gateWay.getUserList();
         User user = new User(username, passcode);
-        users.add(user);
-        FileOutputStream fos = new FileOutputStream("userlist.ser");
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(users);
+        userList.add(user);
+        gateWay.saveUserList(userList);
     }
 
     public void notifyObservers(User user) {

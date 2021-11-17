@@ -19,7 +19,7 @@ public class UserFridgeManagerTest {
     public void tearDown() {
     }
 
-    @Test(timeout = 50)
+    @Test
     public void testAddIngredient() throws Exception{
         UserFridgeManager ufm = new UserFridgeManager();
         UserManageLoginAndNewUser umlanu = new UserManageLoginAndNewUser(ufm);
