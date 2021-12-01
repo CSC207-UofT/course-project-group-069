@@ -35,6 +35,14 @@ public class UserManagerFacade {
         return userManageLoginAndNewUser.login(userName, passcode);
     }
 
+    /**
+     * Run the logout method
+     * @throws Exception
+     */
+    public void logout() throws Exception {
+        userManageLoginAndNewUser.logOut();
+    }
+
 
     // public void uploadRecipe() {}
 
