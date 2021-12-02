@@ -1,5 +1,5 @@
-import meals.controller.Controller;
-import meals.controller.Presenter;
+import com.example.phase2.controller.Controller;
+import com.example.phase2.controller.Presenter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

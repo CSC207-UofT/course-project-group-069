@@ -23,8 +23,8 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'meals'
-    mainClass = 'meal.GUI.GUI'
+    mainModule = 'com.example.phase2'
+    mainClass = 'com.example.phase2.HelloApplication'
 }
 
 javafx {
