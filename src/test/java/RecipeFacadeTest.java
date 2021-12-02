@@ -1,7 +1,8 @@
-import meals.entity.Recipe;
-import meals.use_case.RecipeFacade;
-import org.junit.*;
 
+import com.example.phase2.entity.User;
+import org.junit.*;
+import com.example.phase2.entity.Recipe;
+import com.example.phase2.use_case.RecipeFacade;
 
 
 import static org.junit.Assert.*;
