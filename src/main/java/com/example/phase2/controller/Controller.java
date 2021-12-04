@@ -41,4 +41,27 @@ public class Controller {
         fridge.getUsersIngredientsName();
     }
 
+
+    // TODO implement this method
+    /**
+     * Ask RecipeFacade use case to look up for the direction of this specific recipe.
+     * @param recipeName The name of the recipe
+     */
+    public void getDirectionAction(String recipeName){}
+
+    // TODO implement this method
+    /**
+     * Ask RecipeFacade to find the recipes that is available for the user to make
+     */
+    public void getAvailableRecipe(){}
+
+    // TODO implement this method, I think FridgeManger is responsible for this, but it can be RecipeFacade too
+    //  depending on the implementation
+
+    /**
+     * Ask FridgeManger to remove the ingredients from the fridge that involved making the dish.
+     * @param recipeName Name of the recipe
+     */
+    public void cook(String recipeName){}
+
 }
