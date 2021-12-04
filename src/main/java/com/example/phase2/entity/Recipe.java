@@ -25,6 +25,10 @@ public class Recipe {
         return recipeName;
     }
 
+    public List<String> getIngredients() {
+        return ingredients;
+    }
+
     public boolean containsIngredient(String ingredient){
         return ingredients.contains(ingredient);
     }

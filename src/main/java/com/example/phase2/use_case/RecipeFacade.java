@@ -50,8 +50,8 @@ public class RecipeFacade {
         recipebook.removeRecipe(recipes,recipe);
     }
 
-    public List<Recipe> findRecipe(String ingredient){
-        return recipefinder.Find(recipes, ingredient);
+    public List<Recipe> findRecipe(List<String> fridge){
+        return recipefinder.Find(recipes, fridge);
     }
     public String printRecipes() {
         return recipeprinter.print(recipes);

@@ -29,8 +29,22 @@ public class UserFridgeManager implements CurrentUserObserver {
         outputBoundary.updateFridge(res);
     }
 
+    public List<String> getIngredients(){
+        List<String> res = new ArrayList<>();
+        for (Ingredient ingredient:currentUser.fridge){
+            res.add(ingredient.getIngredientName());
+        }
+        return res;
+    }
+
     public void update(User user) {
         currentUser = user;
+    }
+
+    public void removeIngredients(List<String> ingredients){
+        for(String ingredient:ingredients){
+            currentUser.fridge.remove(ingredient);
+        }
     }
 
     public User getCurrentUser(){
