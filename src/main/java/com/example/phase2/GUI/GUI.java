@@ -46,6 +46,7 @@ public class GUI extends Application {
         addIngButton.setOnAction(e -> AddIngredientBox.display(controller));
 
         Button findRecipeButton = new Button("Find Recipe");
+        findRecipeButton.setOnAction(e -> FindRecipeBox.display(controller, presenter));
 
         Button viewFridgeButton = new Button("View Fridge");
         viewFridgeButton.setOnAction(e -> ViewFridgeBox.display(controller, presenter));
