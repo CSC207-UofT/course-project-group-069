@@ -8,7 +8,7 @@ import java.util.List;
 public class Recipe {
     private String recipeName;
     private List<String> ingredients;
-    private Integer preparationDuration;
+    private String preparationDuration;
     private String directions;
     private String difficultyScale;
     private String cuisineType;
@@ -16,10 +16,13 @@ public class Recipe {
 
 
     // TODO: implement this class
-    public Recipe(String recipeName, List<String> ingredients, String directions){
+    public Recipe(String recipeName, List<String> ingredients, String prep, String directions, String diff, String cuisine){
         this.recipeName = recipeName;
         this.ingredients = ingredients;
+        this.preparationDuration = prep;
         this.directions = directions;
+        this.difficultyScale = diff;
+        this.cuisineType = cuisine;
     }
 
     public String getRecipeName() {
@@ -33,6 +36,13 @@ public class Recipe {
     public String getDirections() {
         return directions;
     }
+
+    public String getDuration() { return preparationDuration; }
+
+    public String getDifficulty() { return difficultyScale; }
+
+    public String getCuisineType() { return cuisineType; }
+
 
     public String showSimple() {
         StringBuilder res = new StringBuilder();
