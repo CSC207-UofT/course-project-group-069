@@ -1,6 +1,7 @@
+import com.example.phase2.entity.User;
 import org.junit.*;
 import com.example.phase2.entity.Recipe;
-import com.example.phase2.use_case.RecipeFacade;
+import com.example.phase2.use_case.RecipeFinder;
 
 
 import static org.junit.Assert.*;
@@ -9,8 +10,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecipeFacadeTest {
 
+
+
+public class RecipeFinderTest {
     @Before
     public void setUp() {
     }
@@ -20,7 +23,8 @@ public class RecipeFacadeTest {
     }
 
     @Test
-    public void testRecipeFacade(){
+    public void testFind(){
+        RecipeFinder recipefinder = new RecipeFinder();
         List<String> ingredients1 = new ArrayList<String>();
         ingredients1.add("apple");
         ingredients1.add("beef");
@@ -37,33 +41,19 @@ public class RecipeFacadeTest {
         ingredients3.add("chicken");
         Recipe recipe3 = new Recipe("recipe3",ingredients3,"");
 
-
-
-        RecipeFacade recipefacade = new RecipeFacade();
-
-        recipefacade.addRecipe(recipe1);
-        recipefacade.addRecipe(recipe2);
-        recipefacade.addRecipe(recipe3);
-        System.out.println(recipefacade.printSimple());
-
+        List<Recipe> recipes = new ArrayList<Recipe>();
+        recipes.add(recipe1);
+        recipes.add(recipe2);
+        recipes.add(recipe3);
         List<String> fridge = new ArrayList<String>();
         fridge.add("chicken");
         fridge.add("leek");
-
-        List<Recipe> res = recipefacade.findRecipe(fridge);
-        assertEquals(res.contains(recipe2),true);
-        assertEquals(res.contains(recipe3),true);
-        assertEquals(res.contains(recipe1),false);
-
-        RecipeFacade result = new RecipeFacade();
-        result.setRecipe(res);
-        assertEquals(result.printSimple().contains("recipe1"),false);
-        assertEquals(result.printSimple().contains("recipe2"),true);
-        assertEquals(result.printSimple().contains("recipe3"),true);
-
+        fridge.add("beef");
+        List<Recipe> res = recipefinder.Find(recipes, fridge);
+        assertEquals(res.contains(recipe2), true);
+        assertEquals(res.contains(recipe3), true);
+        assertEquals(res.contains(recipe1), false);
 
 
     }
-
-
 }

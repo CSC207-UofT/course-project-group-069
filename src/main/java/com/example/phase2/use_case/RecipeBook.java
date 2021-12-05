@@ -4,6 +4,9 @@ import com.example.phase2.entity.Recipe;
 
 import java.util.List;
 
+/**
+ * RecipeBook contains some basic methods used for operations of list of Recipe
+ */
 public class RecipeBook {
     public void setRecipes(List<Recipe> recipe1, List<Recipe> recipe2){
         recipe1.clear();

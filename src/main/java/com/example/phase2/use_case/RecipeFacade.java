@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * RecipeFacade contains basically all methods for Recipes
+ */
+
 public class RecipeFacade {
     private List<Recipe> recipes;
     private final RecipeFinder recipefinder;
@@ -32,7 +36,15 @@ public class RecipeFacade {
     public List<Recipe> findRecipe(List<String> fridge){
         return recipefinder.Find(recipes, fridge);
     }
-    public String printRecipes() {
-        return recipeprinter.print(recipes);
+
+    public String findDetail(String name){
+        return recipefinder.FindDetail(recipes,name);
+    }
+
+    public String printSimple(){
+        return recipeprinter.printSimple(recipes);
+    }
+    public String printDetail() {
+        return recipeprinter.printDetail(recipes);
     }
 }
