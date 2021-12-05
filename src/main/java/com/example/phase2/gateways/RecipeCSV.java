@@ -16,7 +16,7 @@ public class RecipeCSV implements RW {
         String l = "";
 
         try {
-            br = new BufferedReader(new FileReader("recipes.csv"));
+            br = new BufferedReader(new FileReader("recipes - Sheet1.csv"));
             while((l = br.readLine()) != null) {
                 String[] row = l.split(",");
                 String name = row[0];
@@ -46,7 +46,7 @@ public class RecipeCSV implements RW {
     public void saveRecipe(Recipe recipe) {
         FileWriter fw = null;
         try {
-            fw = new FileWriter("recipes.csv", true);
+            fw = new FileWriter("recipes - Sheet1.csv", true);
         } catch (IOException e) {
             e.printStackTrace();
         }
