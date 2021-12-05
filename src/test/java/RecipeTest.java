@@ -24,8 +24,6 @@ public class RecipeTest {
         ingredients.add("egg");
         ingredients.add("chicken");
         Recipe recipe = new Recipe("recipe", ingredients, "");
-        System.out.println(recipe.showSimple());
-        System.out.println(recipe.showDetail());
         assertEquals(recipe.getRecipeName().equalsIgnoreCase("recipe"),true);
     }
 
@@ -45,7 +43,7 @@ public class RecipeTest {
         ingredients.add("egg");
         ingredients.add("chicken");
         Recipe recipe = new Recipe("recipe", ingredients, "");
-        assertEquals(recipe.showSimple().contains("Recipe name = recipe, ingredients = egg, chicken"),true);
+        assertEquals(recipe.showSimple().contains("Recipe: recipe\ningredients: egg, chicken"),true);
     }
 
     @Test

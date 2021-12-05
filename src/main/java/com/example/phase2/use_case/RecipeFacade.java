@@ -37,6 +37,10 @@ public class RecipeFacade {
         return recipefinder.Find(recipes, fridge);
     }
 
+    public String findDetail(String name){
+        return recipefinder.FindDetail(recipes,name);
+    }
+
     public String printSimple(){
         return recipeprinter.printSimple(recipes);
     }

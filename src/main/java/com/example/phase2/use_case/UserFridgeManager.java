@@ -3,6 +3,7 @@ package com.example.phase2.use_case;
 import com.example.phase2.controller.OutputBoundary;
 import com.example.phase2.entity.Ingredient;
 import com.example.phase2.entity.User;
+import com.example.phase2.entity.Recipe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +42,8 @@ public class UserFridgeManager implements CurrentUserObserver {
         currentUser = user;
     }
 
-    public void removeIngredients(List<String> ingredients){
+    public void Cooked(Recipe recipe){
+        List<String> ingredients = recipe.getIngredients();
         for(String ingredient:ingredients){
             currentUser.fridge.remove(ingredient);
         }

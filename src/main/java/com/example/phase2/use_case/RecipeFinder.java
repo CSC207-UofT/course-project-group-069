@@ -20,4 +20,19 @@ public class RecipeFinder {
         return res;
     }
 
+    /**
+     *FindDetail used for find detailed information of a recipe through a list recipes, for user to cook;
+     */
+
+    public String FindDetail(List<Recipe> recipes, String recipeName){
+        StringBuilder res = new StringBuilder();
+        for(Recipe recipe: recipes){
+            if (recipe.getRecipeName().equalsIgnoreCase(recipeName)){
+                res.append(recipe.showDetail());
+            }
+        }
+        String result = res.toString();
+        return result;
+    }
+
 }
