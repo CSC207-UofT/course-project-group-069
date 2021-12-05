@@ -16,9 +16,10 @@ public class Recipe {
 
 
     // TODO: implement this class
-    public Recipe(String recipeName, List<String> ingredients){
+    public Recipe(String recipeName, List<String> ingredients, String directions){
         this.recipeName = recipeName;
         this.ingredients = ingredients;
+        this.directions = directions;
     }
 
     public String getRecipeName() {
@@ -29,12 +30,11 @@ public class Recipe {
         return ingredients;
     }
 
-    public boolean containsIngredient(String ingredient){
-        return ingredients.contains(ingredient);
+    public String getDirections() {
+        return directions;
     }
 
-    @Override
-    public String toString() {
+    public String showSimple() {
         StringBuilder res = new StringBuilder();
         for(int i = 0; i <= ingredients.size()-1; i++) {
             res.append(ingredients.get(i));
@@ -43,7 +43,13 @@ public class Recipe {
             }
         }
         String str = res.toString();
-        return "Recipe name = " + recipeName+
-                ", ingredients = " + str +"\n";
+        return "\nRecipe: " + recipeName+
+                "\nIngredients: " + str;
     }
+
+    public String showDetail(){
+        return showSimple() + "\nDirection: "+ getDirections();
+
+    }
+
 }
