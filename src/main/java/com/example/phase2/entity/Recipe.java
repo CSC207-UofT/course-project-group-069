@@ -25,6 +25,10 @@ public class Recipe {
         return recipeName;
     }
 
+    public List<String> getIngredients() {
+        return ingredients;
+    }
+
     public boolean containsIngredient(String ingredient){
         return ingredients.contains(ingredient);
     }
@@ -32,13 +36,12 @@ public class Recipe {
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
-        for(String str : ingredients)
-        {
-            res.append(str);
-            res.append(", ");
+        for(int i = 0; i <= ingredients.size()-1; i++) {
+            res.append(ingredients.get(i));
+            if (i != ingredients.size()-1){
+                res.append(", ");
+            }
         }
-        res.deleteCharAt(res.length()-1);
-        res.deleteCharAt(res.length()-1);
         String str = res.toString();
         return "Recipe name = " + recipeName+
                 ", ingredients = " + str +"\n";

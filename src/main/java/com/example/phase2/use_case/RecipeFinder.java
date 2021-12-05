@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeFinder {
-    public List<Recipe> Find(List<Recipe> recipes, String ingredient){
-        List<Recipe> results = new ArrayList<Recipe>();
-        for(Recipe recipe : recipes) {
-            if (recipe.containsIngredient(ingredient)) {
-                results.add(recipe);
+    public List<Recipe> Find(List<Recipe> recipes, List<String> fridge){
+        List<Recipe> res = new ArrayList<Recipe>();
+        for (Recipe recipe:recipes){
+            if (fridge.containsAll(recipe.getIngredients())){
+                res.add(recipe);
             }
         }
-        return results;
+        return res;
     }
 
 }

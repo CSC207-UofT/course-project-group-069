@@ -22,36 +22,47 @@ public class RecipeFacadeTest {
     }
 
     @Test
-    public void testRecipeBook(){
-        List<String> b = new ArrayList<String>();
-        b.add("b");
-        b.add("c");
-        Recipe a = new Recipe("a",b);
+    public void testRecipeFacade(){
+        List<String> ingredients1 = new ArrayList<String>();
+        ingredients1.add("apple");
+        ingredients1.add("beef");
+        ingredients1.add("chicken");
+        ingredients1.add("leek");
+        Recipe recipe1 = new Recipe("recipe1",ingredients1);
 
-        List<String> n = new ArrayList<String>();
-        n.add("c");
-        n.add("n");
-        Recipe x = new Recipe("x",n);
+        List<String> ingredients2 = new ArrayList<String>();
+        ingredients2.add("chicken");
+        ingredients2.add("leek");
+        Recipe recipe2 = new Recipe("recipe2",ingredients2);
 
-        List<String> r = new ArrayList<String>();
-        r.add("p");
-        r.add("q");
-        Recipe z = new Recipe("z",r);
+        List<String> ingredients3 = new ArrayList<String>();
+        ingredients3.add("chicken");
+        Recipe recipe3 = new Recipe("recipe3",ingredients3);
+
+
 
         RecipeFacade recipefacade = new RecipeFacade();
 
-        recipefacade.addRecipe(a);
-        recipefacade.addRecipe(x);
-        recipefacade.addRecipe(z);
+        recipefacade.addRecipe(recipe1);
+        recipefacade.addRecipe(recipe2);
+        recipefacade.addRecipe(recipe3);
+        System.out.println(recipefacade.printRecipes());
 
-        List<Recipe> res = recipefacade.findRecipe ("c");
-        RecipeFacade rf2 = new RecipeFacade();
-        rf2.setRecipe(res);
-        assertEquals(res.contains(a), true);
-        assertEquals(res.contains(x), true);
-        assertEquals(res.contains(z), false);
-        rf2.removeRecipe(x);
-        assertTrue(rf2.printRecipes().contains("a"));
+        List<String> fridge = new ArrayList<String>();
+        fridge.add("chicken");
+        fridge.add("leek");
+
+        List<Recipe> res = recipefacade.findRecipe(fridge);
+        assertEquals(res.contains(recipe2),true);
+        assertEquals(res.contains(recipe3),true);
+        assertEquals(res.contains(recipe1),false);
+
+        RecipeFacade result = new RecipeFacade();
+        result.setRecipe(res);
+        assertEquals(result.printRecipes().contains("recipe1"),false);
+        assertEquals(result.printRecipes().contains("recipe2"),true);
+        assertEquals(result.printRecipes().contains("recipe3"),true);
+
 
 
     }
