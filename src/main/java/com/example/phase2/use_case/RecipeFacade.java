@@ -1,6 +1,9 @@
 package com.example.phase2.use_case;
 import com.example.phase2.entity.Recipe;
+import com.example.phase2.gateways.RW;
+import com.example.phase2.gateways.RecipeCSV;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,12 +17,17 @@ public class RecipeFacade {
     private final RecipeFinder recipefinder;
     private final RecipePrinter recipeprinter;
     private final RecipeBook recipebook;
+    private final RW gateway = new RecipeCSV();
 
     public RecipeFacade() {
         this.recipefinder = new RecipeFinder();
         this.recipeprinter = new RecipePrinter();
         this.recipebook = new RecipeBook();
-        this.recipes = new ArrayList<Recipe>();
+        try {
+            this.recipes = gateway.getRecipes();
+        } catch (IOException | ClassNotFoundException e) {
+            return;
+        }
     }
 
     public void setRecipe(List<Recipe> recipes2){
