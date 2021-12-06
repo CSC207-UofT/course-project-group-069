@@ -8,7 +8,7 @@ public interface OutputBoundary {
 
     void updateFridge(List<String> fridge);
 
-    void updateAvailableRecipes(List<String> Recipes);
+    void updateAvailableRecipes(String Recipes);
 
     void updateRecipeDirection(String direction);
 

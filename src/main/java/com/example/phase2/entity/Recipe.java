@@ -1,4 +1,5 @@
 package com.example.phase2.entity;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,7 +31,11 @@ public class Recipe {
     }
 
     public List<String> getIngredients() {
-        return ingredients;
+        List<String> ret_list = new ArrayList<>();
+        for(String ing: ingredients) {
+            ret_list.add(ing.toLowerCase());
+        }
+        return ret_list;
     }
 
     public String getDirections() {

@@ -4,5 +4,5 @@ import com.example.phase2.entity.User;
 
 public interface CurrentUserObserver {
 
-    public void update(User user);
+    void update(User user);
 }

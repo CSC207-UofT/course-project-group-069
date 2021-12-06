@@ -33,9 +33,13 @@ public class User implements Serializable {
 
     public String getUserName() { return userName; }
 
-
-
-
+    public List<String> getFridge(){
+        List<String> ingredients = new ArrayList<>();
+        for (Ingredient ing: fridge) {
+            ingredients.add(ing.getIngredientName());
+        }
+        return ingredients;
+    }
 
 
 }

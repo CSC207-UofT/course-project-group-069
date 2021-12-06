@@ -10,11 +10,9 @@ public class Presenter implements OutputBoundary {
 
     private String fridgeItems;
 
-    // TODO delete what's in the demonstration after you implemented updateAvailableRecipes
-    private String availableRecipes = "Steak | Burger | Pizza | Pasta | Taco | Burrito | Hot Pot | Beef Stir Fry";
+    private String availableRecipes = "";
 
-    // TODO delete what's in the demonstration after you implemented updateRecipeDirection
-    private String recipeDirection = "Put patty, tomato and lettuce between the burger bun. Enjoy!";
+    private String recipeDirection = "";
 
     public boolean getLoginStatus(){
         return loginStatus;
@@ -37,13 +35,8 @@ public class Presenter implements OutputBoundary {
         }
     }
 
-    // TODO it takes a list of String for now (and this is an example implementation)
-    //  but you can change this to your need if its necessary
-    public void updateAvailableRecipes(List<String> Recipes){
-        availableRecipes = "";
-        for (String rec: Recipes) {
-            availableRecipes = availableRecipes + rec + " | ";
-        }
+    public void updateAvailableRecipes(String recipes){
+        availableRecipes = recipes;
     }
 
     public String getAvailableRecipes(){
@@ -53,8 +46,6 @@ public class Presenter implements OutputBoundary {
         else {return availableRecipes;}
     }
 
-    // TODO it takes a String for now (and this is an example implementation)
-    //  but you can change this to your need if its necessary
     public void updateRecipeDirection(String direction){
         recipeDirection = direction;
     }
