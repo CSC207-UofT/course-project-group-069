@@ -51,7 +51,10 @@ public class Presenter implements OutputBoundary {
     }
 
     public String getRecipeDirection(){
-        return recipeDirection;
+        if (recipeDirection.length() == 0){
+            return "No directions available";
+        }
+        else {return recipeDirection;}
     }
 
 }
