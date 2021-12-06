@@ -37,8 +37,7 @@ public class FindRecipeBox {
 
         Button cookButton = new Button("Cooked it");
         cookButton.setOnAction(e -> {
-            // TODO check this line, should work fine
-            controller.cook(getRecipeNameInput.getText());
+            CookAlertBox.display(controller, getRecipeNameInput.getText());
             window.close();
         });
 

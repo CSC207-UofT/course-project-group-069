@@ -32,9 +32,9 @@ public class DisplayDirectionLayOut {
         recipeDirectionLabel.setFont(Font.font("Aralia", FontWeight.SEMI_BOLD, 15));
         recipeDirectionLabel.setWrapText(true);
         recipeDirectionLabel.setTextAlignment(TextAlignment.LEFT);
-        recipeDirectionLabel.setMaxWidth(220);
-        recipeDirectionLabel.setLayoutX(160);
-        recipeDirectionLabel.setLayoutY(170);
+        recipeDirectionLabel.setMaxWidth(350);
+        recipeDirectionLabel.setLayoutX(110);
+        recipeDirectionLabel.setLayoutY(140);
 
         cookButton.setFont(Font.font("Aralia", FontWeight.BOLD, 15));
         cookButton.setLayoutX(680);

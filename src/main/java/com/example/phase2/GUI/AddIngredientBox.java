@@ -54,6 +54,7 @@ public class AddIngredientBox {
         ingTypeLabel.setLayoutY(460);
 
         TextField ingTypeInput = new TextField();
+        ingTypeInput.setPromptText("Optional");
         ingTypeInput.setPrefHeight(35); // for height of the box
         ingTypeInput.setLayoutX(610);
         ingTypeInput.setLayoutY(460);
