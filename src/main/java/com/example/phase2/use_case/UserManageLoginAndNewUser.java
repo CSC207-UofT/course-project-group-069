@@ -20,9 +20,11 @@ public class UserManageLoginAndNewUser {
     private ReadWriter gateWay = new GetSaveUserList();
     private OutputBoundary outputBoundary;
 
-    public UserManageLoginAndNewUser(CurrentUserObserver observer, OutputBoundary presenter){
+    public UserManageLoginAndNewUser(CurrentUserObserver observerFridge, CurrentUserObserver observerRecipe,
+                                     OutputBoundary presenter){
         outputBoundary = presenter;
-        obs.add(observer);
+        obs.add(observerFridge);
+        obs.add(observerRecipe);
     } 
 
 

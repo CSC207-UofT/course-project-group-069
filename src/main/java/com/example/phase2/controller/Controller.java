@@ -15,9 +15,9 @@ public class Controller {
      * Creates an instance of MealsSystem.
      */
     public Controller(Presenter p) {
-        recipeManager = new RecipeFacade();
+        recipeManager = new RecipeFacade(p);
         fridge = new UserFridgeManager(p);
-        userManager = new UserManageLoginAndNewUser(fridge, p);
+        userManager = new UserManageLoginAndNewUser(fridge, recipeManager, p);
     }
 
     public void loginAction(String userName, String passcode) {
@@ -41,27 +41,27 @@ public class Controller {
         fridge.getUsersIngredientsName();
     }
 
-
-    // TODO implement this method
     /**
      * Ask RecipeFacade use case to look up for the direction of this specific recipe.
      * @param recipeName The name of the recipe
      */
-    public void getDirectionAction(String recipeName){}
+    public void getDirectionAction(String recipeName){
+        recipeManager.findDetail(recipeName);
+    }
 
-    // TODO implement this method
     /**
      * Ask RecipeFacade to find the recipes that is available for the user to make
      */
-    public void getAvailableRecipe(){}
-
-    // TODO implement this method, I think FridgeManger is responsible for this, but it can be RecipeFacade too
-    //  depending on the implementation
+    public void getAvailableRecipe(){
+        recipeManager.findRecipe();
+    }
 
     /**
      * Ask FridgeManger to remove the ingredients from the fridge that involved making the dish.
      * @param recipeName Name of the recipe
      */
-    public void cook(String recipeName){}
+    public void cook(String recipeName){
+        fridge.Cooked(recipeName, recipeManager);
+    }
 
 }

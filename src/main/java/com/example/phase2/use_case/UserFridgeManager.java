@@ -7,11 +7,12 @@ import com.example.phase2.entity.Recipe;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 
 public class UserFridgeManager implements CurrentUserObserver {
 
-    User currentUser;
+    private User currentUser;
     private OutputBoundary outputBoundary;
 
     public UserFridgeManager(OutputBoundary p){
@@ -19,7 +20,8 @@ public class UserFridgeManager implements CurrentUserObserver {
     }
 
     public void addIngredient(String ingredientName, String foodType, String storingDuration) {
-        Ingredient newIngredient = new Ingredient(ingredientName, foodType, storingDuration);
+        String ingredientNL = ingredientName.toLowerCase();
+        Ingredient newIngredient = new Ingredient(ingredientNL, foodType, storingDuration);
         currentUser.fridge.add(newIngredient);
     }
     public void getUsersIngredientsName(){
@@ -42,15 +44,27 @@ public class UserFridgeManager implements CurrentUserObserver {
         currentUser = user;
     }
 
-    public void Cooked(Recipe recipe){
+    public void Cooked(String recipeName, RecipesGetter recipeFacade){
+
+        Recipe recipe = recipeFacade.getRecipes(recipeName);
         List<String> ingredients = recipe.getIngredients();
         for(String ingredient:ingredients){
-            currentUser.fridge.remove(ingredient);
+            removeIngredient(ingredient);
         }
     }
 
     public User getCurrentUser(){
         return currentUser;
+    }
+
+
+    public void removeIngredient(String ingName){
+        for (Ingredient ing: currentUser.fridge){
+            if(ing.getIngredientName().equalsIgnoreCase(ingName)) {
+                currentUser.fridge.remove(ing);
+                break;
+            }
+        }
     }
 
 }

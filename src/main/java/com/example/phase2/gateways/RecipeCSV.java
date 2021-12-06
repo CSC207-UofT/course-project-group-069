@@ -26,7 +26,8 @@ public class RecipeCSV implements RW {
                 String difficulty = row[4];
                 String cuisine = row[5];
 
-                List<String> ingredients = new ArrayList<String>(Arrays.asList(ingred.split("|")));
+                String vertBar = "\\|";
+                List<String> ingredients = new ArrayList<String>(Arrays.asList(ingred.split(vertBar)));
                 recipes.add(new Recipe(name, ingredients, prep, dir, difficulty, cuisine));
             }
         } catch (IOException e) {
