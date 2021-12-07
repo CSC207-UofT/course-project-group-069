@@ -10,6 +10,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 
+/**
+ * Lay out for the find recipe scene
+ */
+
 public class FindRecipeLayOut {
 
     public Group findRecipeScene(Label availableRecipeLabel, TextField recipeNameInput, Button getDirectionButton,

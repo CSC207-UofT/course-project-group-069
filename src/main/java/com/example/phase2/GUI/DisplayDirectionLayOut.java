@@ -10,6 +10,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 
+/**
+ * Layout for displaying a recipe direction scene
+ */
+
 public class DisplayDirectionLayOut {
 
     public DisplayDirectionLayOut(){}

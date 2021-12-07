@@ -13,6 +13,10 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Displays add ingredient scene
+ */
+
 public class AddIngredientBox {
 
     private static Controller controller;

@@ -14,6 +14,10 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Displays the user's fridge
+ */
+
 public class ViewFridgeBox {
 
     private static Controller controller;

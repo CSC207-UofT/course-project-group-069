@@ -2,13 +2,23 @@ package com.example.phase2.controller;
 
 import com.example.phase2.use_case.RecipeFacade;
 import com.example.phase2.use_case.UserFridgeManager;
-import com.example.phase2.use_case.UserManageLoginAndNewUser;
+import com.example.phase2.use_case.UserLoginManager;
 import com.example.phase2.use_case.UserShoppingListManager;
+
+/**
+ * The controller class
+ * Takes over immediately after the user interacts with the GUI and manipulates the use case classes to
+ * perform logic and tasks.
+ *
+ * === Representation Invariants ===
+ * The addIngAction, viewFridgeAction, and Cook method should only be called
+ * after a user logged in
+ */
 
 public class Controller {
 
     private final RecipeFacade recipeManager;
-    private UserManageLoginAndNewUser userManager;
+    private UserLoginManager userManager;
     private UserFridgeManager fridge;
     private UserShoppingListManager shoppingList;
 
@@ -19,26 +29,53 @@ public class Controller {
         recipeManager = new RecipeFacade(p);
         fridge = new UserFridgeManager(p);
         shoppingList = new UserShoppingListManager(p);
-        userManager = new UserManageLoginAndNewUser(fridge, recipeManager, shoppingList, p);
+        userManager = new UserLoginManager(fridge, recipeManager, shoppingList, p);
     }
 
+    /**
+     * Performs the loginAction given the username and the passcode
+     * Ask UserLoginManager to log a user in given the username and passcode
+     * @param userName username of a user
+     * @param passcode passcode of a user
+     */
     public void loginAction(String userName, String passcode) {
         userManager.login(userName, passcode);
 
     }
 
+    /**
+     * performs the logout action, ask UserLoginManager to log a user out
+     */
     public void logoutAction(){
         userManager.logOut();
     }
 
+    /**
+     * Performs creating a new user action given a new username and a new passcode.
+     * ask userLoginManager to create a new user with username and passcode given
+     * @param userName a new username of a user
+     * @param passcode a new passcode of a user
+     */
     public void createUserAction(String userName, String passcode) {
         userManager.createUser(userName, passcode);
     }
 
+    /**
+     * Performs an add ingredient action which adds the ingredient to the current user's fridge
+     * given the name of the ingredient and the type of the ingredient.
+     * ask UserFridgeManager to add ingredient
+     * @param ingName name of the ingredient
+     * @param ingType type of the ingredient (vegetable, meat, ...)
+     */
     public void addIngAction(String ingName, String ingType) {
         fridge.addIngredient(ingName, ingType);
     }
 
+    /**
+     * Perform view fridge action which calls getUsersIngredientsName to view all the
+     * ingredients in the current user's fridge
+     * ask UserFridgeManager to get Users Ingredients Name
+     */
     public void viewFridgeAction() {
         fridge.getUsersIngredientsName();
     }

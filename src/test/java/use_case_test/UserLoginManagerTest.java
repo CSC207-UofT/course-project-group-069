@@ -5,7 +5,7 @@ import com.example.phase2.entity.User;
 import com.example.phase2.entity.UserList;
 import com.example.phase2.use_case.RecipeFacade;
 import com.example.phase2.use_case.UserFridgeManager;
-import com.example.phase2.use_case.UserManageLoginAndNewUser;
+import com.example.phase2.use_case.UserLoginManager;
 import com.example.phase2.use_case.UserShoppingListManager;
 import org.junit.After;
 import org.junit.Before;
@@ -20,7 +20,7 @@ public class UserLoginManagerTest {
 
     private Presenter p;
     private RecipeFacade recipeManager;
-    private UserManageLoginAndNewUser userManager;
+    private UserLoginManager userManager;
     private UserFridgeManager fridge;
     private UserShoppingListManager shoppingList;
 
@@ -33,7 +33,7 @@ public class UserLoginManagerTest {
         recipeManager = new RecipeFacade(p);
         fridge = new UserFridgeManager(p);
         shoppingList = new UserShoppingListManager(p);
-        userManager = new UserManageLoginAndNewUser(fridge, recipeManager, shoppingList, p);
+        userManager = new UserLoginManager(fridge, recipeManager, shoppingList, p);
     }
 
     /**

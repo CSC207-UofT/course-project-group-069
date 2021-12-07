@@ -9,6 +9,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Displays available recipes the current user can make, get direction button, cooked button,
+ * and details of a recipe if user search up a recipe.
+ */
+
 public class FindRecipeBox {
 
     private static Scene sceneFindRecipe, sceneRecipeDirection;

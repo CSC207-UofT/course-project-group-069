@@ -12,23 +12,30 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class manages user's login, logout, and creating new user actions.
+ */
 
-public class UserManageLoginAndNewUser {
+public class UserLoginManager {
 
     private User currentUser;
     private List<CurrentUserObserver> obs = new ArrayList<>();
     private ReadWriter gateWay = new GetSaveUserList();
     private OutputBoundary outputBoundary;
 
-    public UserManageLoginAndNewUser(CurrentUserObserver observerFridge, CurrentUserObserver observerRecipe,
-                                     CurrentUserObserver observerShoppingList, OutputBoundary presenter){
+    public UserLoginManager(CurrentUserObserver observerFridge, CurrentUserObserver observerRecipe,
+                            CurrentUserObserver observerShoppingList, OutputBoundary presenter){
         outputBoundary = presenter;
         obs.add(observerFridge);
         obs.add(observerRecipe);
         obs.add(observerShoppingList);
-    } 
+    }
 
-
+    /**
+     * Run the login method
+     * @param userName username of the user
+     * @param passcode passcode of the user
+     */
     public void login(String userName, String passcode) {
 
         try {
@@ -49,6 +56,10 @@ public class UserManageLoginAndNewUser {
         }
     }
 
+    /**
+     * Run the logout method and saves the changes the user made in the current session
+     * through serialization
+     */
     public void logOut() {
 
         try {
@@ -62,7 +73,13 @@ public class UserManageLoginAndNewUser {
         }
     }
 
-
+    /**
+     * Creating a new user given a choice of username and passcode
+     * and save the new user into the ser file through serialization
+     * which enables this new user to login
+     * @param username A user's new username
+     * @param passcode A user's new passcode
+     */
     public void createUser(String username, String passcode) {
 
         try {
@@ -77,6 +94,10 @@ public class UserManageLoginAndNewUser {
         }
     }
 
+    /**
+     * Notify the observer given a user
+     * @param user A user object which represent a user who uses the program
+     */
     public void notifyObservers(User user) {
         for (CurrentUserObserver o: obs) {
             o.update(user);

@@ -9,6 +9,10 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Alert box before a user cooked the ingredients
+ */
+
 public class CookAlertBox {
 
     public static void display(Controller controller, String recipeName){
