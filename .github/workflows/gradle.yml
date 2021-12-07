@@ -15,11 +15,4 @@ jobs:
         cache: gradle
     - name: Test with Gradle
       run: gradle test
-      env:
-        AUTODIRECT_DB_HOST: ${{ secrets.AUTODIRECT_DB_HOST }}
-        AUTODIRECT_DB_PASS: ${{ secrets.AUTODIRECT_DB_PASS }}
-        AUTODIRECT_DB_PORT: ${{ secrets.AUTODIRECT_DB_PORT }}
-        AUTODIRECT_DB_SSL: ${{ secrets.AUTODIRECT_DB_SSL }}
-        AUTODIRECT_DB_USER: ${{ secrets.AUTODIRECT_DB_USER }}
-        SENSO_API_KEY: ${{ secrets.SENSO_API_KEY }}
-        SENSO_API_URL: ${{ secrets.SENSO_API_URL }}
+     
