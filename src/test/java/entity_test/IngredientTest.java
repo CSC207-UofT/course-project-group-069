@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Tests for all methods in Recipe
+ * Tests for all methods in Ingredient
  */
 public class IngredientTest {
     @Before

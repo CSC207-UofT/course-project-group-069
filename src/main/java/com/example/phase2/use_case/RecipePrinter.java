@@ -6,6 +6,7 @@ import java.util.List;
 public class RecipePrinter {
     /**
      * printSimple is used for user see a list of recipes, and so they can pick one
+     * * @param recipes the recipe list want to be showed in string format
      */
     public String printSimple(List<Recipe> recipes){
         StringBuilder res = new StringBuilder();
@@ -17,6 +18,7 @@ public class RecipePrinter {
     }
     /**
      * printDetail is used for user see the detail of a recipe, and so they can know how to cook a meal
+     * @param recipes the recipe list want to be showed in string format
      */
     public String printDetail(List<Recipe> recipes){
         StringBuilder res = new StringBuilder();
