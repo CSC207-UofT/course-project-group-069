@@ -7,7 +7,6 @@ import com.example.phase2.entity.Recipe;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 
 public class UserFridgeManager implements CurrentUserObserver {
@@ -19,9 +18,9 @@ public class UserFridgeManager implements CurrentUserObserver {
         outputBoundary = p;
     }
 
-    public void addIngredient(String ingredientName, String foodType, String storingDuration) {
+    public void addIngredient(String ingredientName, String foodType) {
         String ingredientNL = ingredientName.toLowerCase();
-        Ingredient newIngredient = new Ingredient(ingredientNL, foodType, storingDuration);
+        Ingredient newIngredient = new Ingredient(ingredientNL, foodType);
         currentUser.fridge.add(newIngredient);
     }
     public void getUsersIngredientsName(){

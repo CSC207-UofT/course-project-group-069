@@ -1,9 +1,5 @@
 package com.example.phase2.use_case;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.List;
-
 /**
  * Represent the entire system of User. It is a facade for UserFridgeManager and UserManageLoginAndNewUser
  * hence all functionalities from those two classes are accessible from this facade.
@@ -51,7 +47,7 @@ public class UserManagerFacade {
      * @param storingDuration how long the ingredient can store
      */
     public void addIngredient(String ingredientName, String foodType, String storingDuration) {
-        userFridgeManager.addIngredient(ingredientName, foodType, storingDuration);
+        userFridgeManager.addIngredient(ingredientName, foodType);
     }
 
     /**
