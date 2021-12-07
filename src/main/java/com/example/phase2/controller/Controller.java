@@ -3,7 +3,6 @@ package com.example.phase2.controller;
 import com.example.phase2.use_case.RecipeFacade;
 import com.example.phase2.use_case.UserFridgeManager;
 import com.example.phase2.use_case.UserManageLoginAndNewUser;
-import com.example.phase2.use_case.UserManagerFacade;
 
 public class Controller {
 
@@ -34,7 +33,7 @@ public class Controller {
     }
 
     public void addIngAction(String ingName, String ingType) {
-        fridge.addIngredient(ingName, ingType, "1 day");
+        fridge.addIngredient(ingName, ingType);
     }
 
     public void viewFridgeAction() {

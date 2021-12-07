@@ -46,8 +46,8 @@ public class UserTest {
     public void testgetFridge(){
         User user = new User("default","123");
         assertEquals(user.getFridge(),new ArrayList<String>());
-        user.fridge.add(new Ingredient("egg","meat","1day"));
-        user.fridge.add(new Ingredient("cabbage","vegetable","2day"));
+        user.fridge.add(new Ingredient("egg","meat"));
+        user.fridge.add(new Ingredient("cabbage","vegetable"));
         List<String> content = new ArrayList<>();
         content.add("egg");
         content.add("cabbage");

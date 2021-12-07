@@ -27,7 +27,7 @@ public class IngredientTest {
      */
     @Test
     public void testgetIngredientName(){
-        Ingredient ingredient = new Ingredient("chicken","meat","1day");
+        Ingredient ingredient = new Ingredient("chicken","meat");
         assertTrue(ingredient.getIngredientName().equalsIgnoreCase("chicken"));
     }
     /**
@@ -35,8 +35,8 @@ public class IngredientTest {
      */
     @Test
     public void testtoString(){
-        Ingredient ingredient = new Ingredient("chicken","meat","1day");
-        assertEquals(ingredient.toString(),"chicken" + ", " + "meat" + " ," + "1day");
+        Ingredient ingredient = new Ingredient("chicken","meat");
+        assertEquals(ingredient.toString(),"chicken" + ", " + "meat");
     }
 
 
