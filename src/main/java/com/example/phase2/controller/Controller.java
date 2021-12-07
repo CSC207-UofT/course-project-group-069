@@ -3,20 +3,23 @@ package com.example.phase2.controller;
 import com.example.phase2.use_case.RecipeFacade;
 import com.example.phase2.use_case.UserFridgeManager;
 import com.example.phase2.use_case.UserManageLoginAndNewUser;
+import com.example.phase2.use_case.UserShoppingListManager;
 
 public class Controller {
 
     private final RecipeFacade recipeManager;
     private UserManageLoginAndNewUser userManager;
     private UserFridgeManager fridge;
+    private UserShoppingListManager shoppingList;
 
     /**
-     * Creates an instance of MealsSystem.
+     * Creates an instance of Controller.
      */
     public Controller(Presenter p) {
         recipeManager = new RecipeFacade(p);
         fridge = new UserFridgeManager(p);
-        userManager = new UserManageLoginAndNewUser(fridge, recipeManager, p);
+        shoppingList = new UserShoppingListManager(p);
+        userManager = new UserManageLoginAndNewUser(fridge, recipeManager, shoppingList, p);
     }
 
     public void loginAction(String userName, String passcode) {
@@ -38,6 +41,18 @@ public class Controller {
 
     public void viewFridgeAction() {
         fridge.getUsersIngredientsName();
+    }
+
+    public void addItemAction(String itemName) {
+        this.shoppingList.addIngredient(itemName, "Undeclared");
+    }
+
+    public void removeItemAction(String itemName) {
+        this.shoppingList.removeIngredient(itemName);
+    }
+
+    public void viewShoppingListAction() {
+        this.shoppingList.getAllIngredients();
     }
 
     /**

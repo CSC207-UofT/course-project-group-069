@@ -24,7 +24,7 @@ public class TestFindRecipe {
     public void testInputRecipes() throws Exception{
         RW gateway = new RecipeCSV();
         List<Recipe> recipes = gateway.getRecipes();
-        assertEquals(recipes.size(), 8);
+        assertEquals(recipes.size(), 9);
     }
 
     @Test

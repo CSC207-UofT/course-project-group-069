@@ -10,7 +10,7 @@ import javafx.scene.text.FontWeight;
 public class MainMenuLayOut {
 
     public Group mainMenuScene(Button addIngButton, Button findRecipeButton, Button viewFridgeButton,
-                               Button logoutButton){
+                               Button shoppingListButton, Button logoutButton){
         Group layout = new Group();
 
         Image image = new Image("file:stage2.jpg");
@@ -20,23 +20,27 @@ public class MainMenuLayOut {
         backGroundImageView.setPreserveRatio(true);
 
         addIngButton.setFont(Font.font("Aralia", FontWeight.BOLD, 20));
-        addIngButton.setLayoutX(400);
-        addIngButton.setLayoutY(200);
+        addIngButton.setLayoutX(380);
+        addIngButton.setLayoutY(120);
 
         findRecipeButton.setFont(Font.font("Aralia", FontWeight.BOLD, 20));
-        findRecipeButton.setLayoutX(420);
-        findRecipeButton.setLayoutY(280);
+        findRecipeButton.setLayoutX(397);
+        findRecipeButton.setLayoutY(200);
 
         viewFridgeButton.setFont(Font.font("Aralia", FontWeight.BOLD, 20));
-        viewFridgeButton.setLayoutX(420);
-        viewFridgeButton.setLayoutY(360);
+        viewFridgeButton.setLayoutX(397);
+        viewFridgeButton.setLayoutY(280);
+
+        shoppingListButton.setFont(Font.font("Aralia", FontWeight.BOLD, 20));
+        shoppingListButton.setLayoutX(387);
+        shoppingListButton.setLayoutY(360);
 
         logoutButton.setFont(Font.font("Aralia", FontWeight.BOLD, 20));
-        logoutButton.setLayoutX(440);
+        logoutButton.setLayoutX(420);
         logoutButton.setLayoutY(440);
 
         layout.getChildren().addAll(backGroundImageView, addIngButton,
-                findRecipeButton, viewFridgeButton, logoutButton);
+                findRecipeButton, viewFridgeButton, shoppingListButton, logoutButton);
 
         return layout;
 

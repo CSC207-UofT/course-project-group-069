@@ -22,6 +22,15 @@ public class UserFridgeManager implements CurrentUserObserver {
         String ingredientNL = ingredientName.toLowerCase();
         Ingredient newIngredient = new Ingredient(ingredientNL, foodType);
         currentUser.fridge.add(newIngredient);
+
+        //Removes the new ingredient from user's shopping list when added to their fridge
+        //If the ingredient is not in their shopping list, the list remains unchanged.
+        for (Ingredient ingredient : currentUser.shoppingList) {
+            if (ingredient.getIngredientName().equalsIgnoreCase(ingredientNL)) {
+                currentUser.shoppingList.remove(ingredient);
+                break;
+            }
+        }
     }
     public void getUsersIngredientsName(){
         List<String> res = new ArrayList<>();

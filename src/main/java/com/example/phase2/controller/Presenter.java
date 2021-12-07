@@ -10,6 +10,10 @@ public class Presenter implements OutputBoundary {
 
     private String fridgeItems;
 
+    private String shoppingListItems;
+
+    private boolean containStatus = false;
+
     private String availableRecipes = "";
 
     private String recipeDirection = "";
@@ -33,6 +37,28 @@ public class Presenter implements OutputBoundary {
         for (String ing: fridge) {
             fridgeItems = fridgeItems + ing + " | ";
         }
+    }
+
+    public String getShoppingList(){
+        if (shoppingListItems.isEmpty()){
+            return "Empty Shopping List. Click Add Ingredient!";
+        }
+        return shoppingListItems;
+    }
+
+    public void updateShoppingList(List<String> shoppingList){
+        shoppingListItems = "";
+        for (String ingredient: shoppingList){
+            shoppingListItems += ingredient + " | ";
+        }
+    }
+
+    public boolean getContainStatus() {
+        return containStatus;
+    }
+
+    public void updateContainStatus(){
+        containStatus = !containStatus;
     }
 
     public void updateAvailableRecipes(String recipes){

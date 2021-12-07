@@ -21,10 +21,11 @@ public class UserManageLoginAndNewUser {
     private OutputBoundary outputBoundary;
 
     public UserManageLoginAndNewUser(CurrentUserObserver observerFridge, CurrentUserObserver observerRecipe,
-                                     OutputBoundary presenter){
+                                     CurrentUserObserver observerShoppingList, OutputBoundary presenter){
         outputBoundary = presenter;
         obs.add(observerFridge);
         obs.add(observerRecipe);
+        obs.add(observerShoppingList);
     } 
 
 

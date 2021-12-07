@@ -4,6 +4,7 @@ import com.example.phase2.controller.Presenter;
 import com.example.phase2.use_case.RecipeFacade;
 import com.example.phase2.use_case.UserFridgeManager;
 import com.example.phase2.use_case.UserManageLoginAndNewUser;
+import com.example.phase2.use_case.UserShoppingListManager;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,6 +18,7 @@ public class FridgeManagerTest {
     private RecipeFacade recipeManager;
     private UserManageLoginAndNewUser userManager;
     private UserFridgeManager fridge;
+    private UserShoppingListManager shoppingList;
 
     /**
      * As many methods in UserFridgeManager requires a user to login first, the following set up is necessary.
@@ -26,7 +28,8 @@ public class FridgeManagerTest {
         p = new Presenter();
         recipeManager = new RecipeFacade(p);
         fridge = new UserFridgeManager(p);
-        userManager = new UserManageLoginAndNewUser(fridge, recipeManager, p);
+        shoppingList = new UserShoppingListManager(p);
+        userManager = new UserManageLoginAndNewUser(fridge, recipeManager, shoppingList, p);
         userManager.login("default", "123");
     }
 

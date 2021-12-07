@@ -14,6 +14,7 @@ public class User implements Serializable {
     private String email;
     private String passcode;
     public List<Ingredient> fridge;
+    public List<Ingredient> shoppingList;
 /*
     Stuff maybe for later as the project progresses
     private String foodPreferences;
@@ -25,6 +26,7 @@ public class User implements Serializable {
         userName = username;
         passcode = password;
         fridge = new ArrayList<>();
+        shoppingList = new ArrayList<>();
     }
 
     public String getPasscode(){
@@ -40,6 +42,4 @@ public class User implements Serializable {
         }
         return ingredients;
     }
-
-
 }

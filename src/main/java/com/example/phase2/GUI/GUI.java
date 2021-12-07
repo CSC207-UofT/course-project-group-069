@@ -51,6 +51,9 @@ public class GUI extends Application {
         Button viewFridgeButton = new Button("View Fridge");
         viewFridgeButton.setOnAction(e -> ViewFridgeBox.display(controller, presenter));
 
+        Button shoppingListButton = new Button("Shopping List");
+        shoppingListButton.setOnAction(e -> ShoppingListBox.display(controller, presenter));
+
         Button logOutButton = new Button("Logout");
         logOutButton.setOnAction(e -> {
             controller.logoutAction();
@@ -65,7 +68,7 @@ public class GUI extends Application {
                 createUserButton), 900, 600);
 
         sceneMainMenu = new Scene(mainMenuLayOut.mainMenuScene(addIngButton, findRecipeButton,
-                viewFridgeButton, logOutButton), 900, 600);
+                viewFridgeButton, shoppingListButton, logOutButton), 900, 600);
 
         window.setScene(sceneLogin);
         window.setResizable(false);

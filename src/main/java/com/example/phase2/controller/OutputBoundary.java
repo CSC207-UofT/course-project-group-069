@@ -8,6 +8,10 @@ public interface OutputBoundary {
 
     void updateFridge(List<String> fridge);
 
+    void updateShoppingList(List<String> shoppingList);
+
+    void updateContainStatus();
+
     void updateAvailableRecipes(String Recipes);
 
     void updateRecipeDirection(String direction);
