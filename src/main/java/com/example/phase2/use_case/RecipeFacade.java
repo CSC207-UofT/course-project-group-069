@@ -13,8 +13,8 @@ import java.util.List;
  */
 
 public class RecipeFacade implements CurrentUserObserver, RecipesGetter{
-    private List<Recipe> recipes;
-    private User currentUser;
+    public List<Recipe> recipes;
+    public User currentUser;
     private final RecipeFinder recipefinder;
     private final RecipePrinter recipeprinter;
     private final RecipeBook recipebook;
