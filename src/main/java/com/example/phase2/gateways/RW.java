@@ -9,5 +9,4 @@ public interface RW {
 
     List<Recipe> getRecipes() throws IOException, ClassNotFoundException;
 
-    void saveRecipe(Recipe recipe) throws IOException;
 }

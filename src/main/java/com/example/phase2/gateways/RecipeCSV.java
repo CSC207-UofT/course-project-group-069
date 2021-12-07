@@ -28,7 +28,7 @@ public class RecipeCSV implements RW {
 
                 String vertBar = "\\|";
                 List<String> ingredients = new ArrayList<String>(Arrays.asList(ingred.split(vertBar)));
-                recipes.add(new Recipe(name, ingredients, prep, dir, difficulty, cuisine));
+                recipes.add(new Recipe(name, ingredients, dir));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -43,20 +43,4 @@ public class RecipeCSV implements RW {
         return recipes;
     }
 
-    @Override
-    public void saveRecipe(Recipe recipe) {
-        FileWriter fw = null;
-        try {
-            fw = new FileWriter("recipes - Sheet1.csv", true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        BufferedWriter bw = new BufferedWriter(fw);
-        PrintWriter pw = new PrintWriter(bw);
-        String ingred = String.join("|", recipe.getIngredients());
-        pw.println(recipe.getRecipeName() + "," + ingred + "," + recipe.getDuration() + "," + recipe.getDirections() + ","
-                + recipe.getDifficulty() + "," + recipe.getCuisineType());
-        pw.flush();
-        pw.close();
-    }
 }

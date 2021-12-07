@@ -1,6 +1,5 @@
 package use_case_test;
 
-import com.example.phase2.entity.User;
 import org.junit.*;
 import com.example.phase2.entity.Recipe;
 import com.example.phase2.use_case.RecipeFinder;
@@ -8,7 +7,6 @@ import com.example.phase2.use_case.RecipeFinder;
 
 import static org.junit.Assert.*;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,16 +36,16 @@ public class RecipeFinderTest {
         ingredients1.add("beef");
         ingredients1.add("chicken");
         ingredients1.add("leek");
-        Recipe recipe1 = new Recipe("recipe1",ingredients1,"","","","");
+        Recipe recipe1 = new Recipe("recipe1",ingredients1, "");
 
         List<String> ingredients2 = new ArrayList<String>();
         ingredients2.add("chicken");
         ingredients2.add("leek");
-        Recipe recipe2 = new Recipe("recipe2",ingredients2,"","","","");
+        Recipe recipe2 = new Recipe("recipe2",ingredients2, "");
 
         List<String> ingredients3 = new ArrayList<String>();
         ingredients3.add("chicken");
-        Recipe recipe3 = new Recipe("recipe3",ingredients3,"","","","");
+        Recipe recipe3 = new Recipe("recipe3",ingredients3, "");
 
         List<Recipe> recipes = new ArrayList<Recipe>();
         recipes.add(recipe1);
@@ -70,16 +68,16 @@ public class RecipeFinderTest {
         ingredients1.add("beef");
         ingredients1.add("chicken");
         ingredients1.add("leek");
-        Recipe recipe1 = new Recipe("recipe1",ingredients1,"","","","");
+        Recipe recipe1 = new Recipe("recipe1",ingredients1, "");
 
         List<String> ingredients2 = new ArrayList<String>();
         ingredients2.add("chicken");
         ingredients2.add("leek");
-        Recipe recipe2 = new Recipe("recipe2",ingredients2,"","","","");
+        Recipe recipe2 = new Recipe("recipe2",ingredients2, "");
 
         List<String> ingredients3 = new ArrayList<String>();
         ingredients3.add("chicken");
-        Recipe recipe3 = new Recipe("recipe3",ingredients3,"","","","");
+        Recipe recipe3 = new Recipe("recipe3",ingredients3, "");
 
         List<Recipe> recipes = new ArrayList<Recipe>();
         recipes.add(recipe1);
@@ -102,16 +100,16 @@ public class RecipeFinderTest {
         ingredients1.add("beef");
         ingredients1.add("chicken");
         ingredients1.add("leek");
-        Recipe recipe1 = new Recipe("recipe1",ingredients1,"","","","");
+        Recipe recipe1 = new Recipe("recipe1",ingredients1, "");
 
         List<String> ingredients2 = new ArrayList<String>();
         ingredients2.add("chicken");
         ingredients2.add("leek");
-        Recipe recipe2 = new Recipe("recipe2",ingredients2,"","","","");
+        Recipe recipe2 = new Recipe("recipe2",ingredients2, "");
 
         List<String> ingredients3 = new ArrayList<String>();
         ingredients3.add("chicken");
-        Recipe recipe3 = new Recipe("recipe3",ingredients3,"","","","");
+        Recipe recipe3 = new Recipe("recipe3",ingredients3, "");
 
         List<Recipe> recipes = new ArrayList<Recipe>();
         recipes.add(recipe1);
