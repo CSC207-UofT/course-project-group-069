@@ -10,6 +10,7 @@ import java.util.List;
  */
 
 public class User implements Serializable {
+
     public String userName;
     private String passcode;
     public List<Ingredient> fridge;
