@@ -17,7 +17,6 @@ public class RecipeFacade implements CurrentUserObserver, RecipesGetter{
     public User currentUser;
     private final RecipeFinder recipefinder;
     private final RecipePrinter recipeprinter;
-    private final RecipeBook recipebook;
     private final RW gateway = new RecipeCSV();
     private OutputBoundary outputBoundary;
 
@@ -29,7 +28,6 @@ public class RecipeFacade implements CurrentUserObserver, RecipesGetter{
         this.outputBoundary = p;
         this.recipefinder = new RecipeFinder();
         this.recipeprinter = new RecipePrinter();
-        this.recipebook = new RecipeBook();
         try {
             this.recipes = gateway.getRecipes();
         } catch (IOException | ClassNotFoundException e) {
@@ -37,29 +35,29 @@ public class RecipeFacade implements CurrentUserObserver, RecipesGetter{
         }
     }
 
-    /**
-     * set recipes to a list of recipes
-     * @param recipes2 the recipe want to be copied to our recipes
-     */
-    public void setRecipe(List<Recipe> recipes2){
-        recipebook.setRecipes(recipes, recipes2);
-    }
+//    /**
+//     * set recipes to a list of recipes
+//     * @param recipes2 the recipe want to be copied to our recipes
+//     */
+//    public void setRecipe(List<Recipe> recipes2){
+//        recipebook.setRecipes(recipes, recipes2);
+//    }
 
-    /**
-     * add a recipe to our recipes
-     * @param recipe the recipe want to be added
-     */
-    public void addRecipe(Recipe recipe){
-        recipebook.addRecipe(recipes,recipe);
-    }
-
-    /**
-     * remove a recipe from our recipes
-     * @param recipe the recipe want to be removed
-     */
-    public void removeRecipe(Recipe recipe){
-        recipebook.removeRecipe(recipes,recipe);
-    }
+//    /**
+//     * add a recipe to our recipes
+//     * @param recipe the recipe want to be added
+//     */
+//    public void addRecipe(Recipe recipe){
+//        recipebook.addRecipe(recipes,recipe);
+//    }
+//
+//    /**
+//     * remove a recipe from our recipes
+//     * @param recipe the recipe want to be removed
+//     */
+//    public void removeRecipe(Recipe recipe){
+//        recipebook.removeRecipe(recipes,recipe);
+//    }
     /**
      * Find all the recipes available to users, all in string format
      */

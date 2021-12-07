@@ -17,18 +17,14 @@ public class RecipeFinder {
      * @return a string represents all the recipes we find according to the fridge and recipes
      */
     public String Find(List<Recipe> recipes, List<String> fridge){
+        RecipePrinter recipePrinter = new RecipePrinter();
         List<Recipe> res = new ArrayList<Recipe>();
         for (Recipe recipe:recipes){
             if (fridge.containsAll(recipe.getIngredients())){
                 res.add(recipe);
             }
         }
-        String recipeItems = "";
-        for (Recipe recipe: res) {
-            String recipeName = recipe.getRecipeName();
-            recipeItems = recipeItems + recipeName + " | ";
-        }
-        return recipeItems;
+        return recipePrinter.printSimple(res);
     }
 
     /**
@@ -38,14 +34,12 @@ public class RecipeFinder {
      * @return a string that present the recipe we find according to recipes and recipeName
      */
     public String FindDetail(List<Recipe> recipes, String recipeName){
-        StringBuilder res = new StringBuilder();
-        for(Recipe recipe: recipes){
-            if (recipe.getRecipeName().equalsIgnoreCase(recipeName)){
-                res.append(recipe.showDetail());
-            }
+        if (getRecipes(recipes, recipeName) != null) {
+            return getRecipes(recipes, recipeName).showDetail();
         }
-        String result = res.toString();
-        return result;
+        else{
+            return null;
+        }
     }
 
     /**
