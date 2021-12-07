@@ -9,10 +9,7 @@ import java.util.List;
 public class Recipe {
     private String recipeName;
     private List<String> ingredients;
-    private String preparationDuration;
     private String directions;
-    private String difficultyScale;
-    private String cuisineType;
     // private User inventor; (maybe for later as the project progresses)
 
     /**

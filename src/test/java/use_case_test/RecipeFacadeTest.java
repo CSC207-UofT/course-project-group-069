@@ -52,7 +52,6 @@ public class RecipeFacadeTest {
         recipes.add(recipe1);
         recipes.add(recipe2);
         recipes.add(recipe3);
-        recipefacade.setRecipe(recipes);
         assertEquals(recipefacade.recipes,recipes);
     }
     /**
@@ -83,7 +82,6 @@ public class RecipeFacadeTest {
         recipes.add(recipe1);
         recipes.add(recipe2);
         recipes.add(recipe3);
-        recipefacade.setRecipe(recipes);
         assertEquals(recipefacade.getRecipes("recipe3"),recipe3);
     }
 
