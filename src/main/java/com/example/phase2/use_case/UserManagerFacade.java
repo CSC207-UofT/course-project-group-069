@@ -10,7 +10,7 @@ package com.example.phase2.use_case;
 
 public class UserManagerFacade {
 
-    private UserManageLoginAndNewUser userManageLoginAndNewUser;
+    private UserLoginManager userManageLoginAndNewUser;
     private UserFridgeManager userFridgeManager;
 
     public UserManagerFacade() {

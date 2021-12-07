@@ -11,10 +11,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+/**
+ * This class runs the JavaFX GUI
+ */
 public class GUI extends Application {
     Stage window;
     Scene sceneLogin, sceneMainMenu;
-    LoginPage loginPage = new LoginPage();
     Presenter presenter = new Presenter();
     Controller controller = new Controller(presenter);
 

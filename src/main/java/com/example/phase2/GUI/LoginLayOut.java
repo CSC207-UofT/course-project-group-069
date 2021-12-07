@@ -9,6 +9,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
+/**
+ * Layout for the login scene
+ */
+
 public class LoginLayOut {
 
     public Group loginScene(TextField userNameInput, TextField passcodeInput, Button loginButton,

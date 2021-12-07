@@ -13,6 +13,10 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Displays creating new user scene
+ */
+
 public class CreateUserBox {
 
     private static Controller controller;

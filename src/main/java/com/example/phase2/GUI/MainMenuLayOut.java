@@ -7,6 +7,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
+/**
+ * Lay out for the main menu scene
+ */
+
 public class MainMenuLayOut {
 
     public Group mainMenuScene(Button addIngButton, Button findRecipeButton, Button viewFridgeButton,
