@@ -4,11 +4,9 @@ import com.example.phase2.entity.Recipe;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.*;
 import com.example.phase2.use_case.RecipePrinter;
 import static org.junit.Assert.*;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,16 +31,16 @@ public class RecipePrinterTest {
         ingredients1.add("beef");
         ingredients1.add("chicken");
         ingredients1.add("leek");
-        Recipe recipe1 = new Recipe("recipe1",ingredients1,"","","","");
+        Recipe recipe1 = new Recipe("recipe1",ingredients1, "");
 
         List<String> ingredients2 = new ArrayList<String>();
         ingredients2.add("chicken");
         ingredients2.add("leek");
-        Recipe recipe2 = new Recipe("recipe2",ingredients2,"","","","");
+        Recipe recipe2 = new Recipe("recipe2",ingredients2, "");
 
         List<String> ingredients3 = new ArrayList<String>();
         ingredients3.add("chicken");
-        Recipe recipe3 = new Recipe("recipe3",ingredients3,"","","","");
+        Recipe recipe3 = new Recipe("recipe3",ingredients3, "");
 
         List<Recipe> recipes = new ArrayList<Recipe>();
 
@@ -68,16 +66,16 @@ public class RecipePrinterTest {
         ingredients1.add("beef");
         ingredients1.add("chicken");
         ingredients1.add("leek");
-        Recipe recipe1 = new Recipe("recipe1",ingredients1,"","","","");
+        Recipe recipe1 = new Recipe("recipe1",ingredients1, "");
 
         List<String> ingredients2 = new ArrayList<String>();
         ingredients2.add("chicken");
         ingredients2.add("leek");
-        Recipe recipe2 = new Recipe("recipe2",ingredients2,"","","","");
+        Recipe recipe2 = new Recipe("recipe2",ingredients2, "");
 
         List<String> ingredients3 = new ArrayList<String>();
         ingredients3.add("chicken");
-        Recipe recipe3 = new Recipe("recipe3",ingredients3,"","","","");
+        Recipe recipe3 = new Recipe("recipe3",ingredients3, "");
 
         List<Recipe> recipes = new ArrayList<Recipe>();
 

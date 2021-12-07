@@ -19,18 +19,12 @@ public class Recipe {
      * the constructor of a recipe based on 6 parameters
      * @param recipeName the name of the recipe which is a string
      * @param ingredients the ingredients which is a list of string
-     * @param prep the preparation time of a recipe which is a string
      * @param directions the direction of a recipe which a string
-     * @param diff the difficulty scale of a recipe which a string
-     * @param cuisine the cuisine type of recipe which a string
      */
-    public Recipe(String recipeName, List<String> ingredients, String prep, String directions, String diff, String cuisine){
+    public Recipe(String recipeName, List<String> ingredients, String directions){
         this.recipeName = recipeName;
         this.ingredients = ingredients;
-        this.preparationDuration = prep;
         this.directions = directions;
-        this.difficultyScale = diff;
-        this.cuisineType = cuisine;
     }
 
     /**
@@ -60,24 +54,6 @@ public class Recipe {
     public String getDirections() {
         return directions;
     }
-
-    /**
-     * get the preparation time of a recipe
-     * @return a string represent preparation
-     */
-    public String getDuration() { return preparationDuration; }
-
-    /**
-     * get the difficulty scale of a recipe
-     * @return a string represent difficulty scale
-     */
-    public String getDifficulty() { return difficultyScale; }
-
-    /**
-     * get the cuisine type of recipe
-     * @return a string represent cuisine type
-     */
-    public String getCuisineType() { return cuisineType; }
 
     /**
      * get the string format of a recipe which only have recipe name and its ingreident

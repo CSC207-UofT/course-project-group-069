@@ -3,11 +3,9 @@ package entity_test;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.*;
 import com.example.phase2.entity.Recipe;
 import static org.junit.Assert.*;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +28,7 @@ public class RecipeTest {
         List<String> ingredients = new ArrayList<String>();
         ingredients.add("egg");
         ingredients.add("chicken");
-        Recipe recipe = new Recipe("recipe", ingredients, "","","","");
+        Recipe recipe = new Recipe("recipe", ingredients, "");
         assertEquals(recipe.getRecipeName().equalsIgnoreCase("recipe"),true);
     }
     /**
@@ -41,7 +39,7 @@ public class RecipeTest {
         List<String> ingredients = new ArrayList<String>();
         ingredients.add("egg");
         ingredients.add("chicken");
-        Recipe recipe = new Recipe("recipe", ingredients, "","","","");
+        Recipe recipe = new Recipe("recipe", ingredients, "");
         assertEquals(recipe.getIngredients().equals(ingredients),true);
     }
 
@@ -53,7 +51,7 @@ public class RecipeTest {
         List<String> ingredients = new ArrayList<String>();
         ingredients.add("egg");
         ingredients.add("chicken");
-        Recipe recipe = new Recipe("recipe", ingredients, "","","","");
+        Recipe recipe = new Recipe("recipe", ingredients, "");
         assertEquals(recipe.showSimple().contains("Recipe: recipe\nIngredients: egg, chicken"),true);
     }
     /**
@@ -64,7 +62,7 @@ public class RecipeTest {
         List<String> ingredients = new ArrayList<String>();
         ingredients.add("egg");
         ingredients.add("chicken");
-        Recipe recipe = new Recipe("recipe", ingredients, "abc","","","");
+        Recipe recipe = new Recipe("recipe", ingredients, "");
         assertEquals(recipe.showDetail().contains("Direction:"),true);
         assertEquals(recipe.showSimple().contains("Direction:"),false);
     }
