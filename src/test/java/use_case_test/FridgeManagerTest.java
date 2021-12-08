@@ -9,8 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
 public class FridgeManagerTest {
 
@@ -38,13 +37,15 @@ public class FridgeManagerTest {
     }
 
     /**
-     * Test add ingredient successfully
+     * Test add ingredient (which is not present in the user's shopping list) successfully
      */
     @Test
     public void testAddIngredient(){
         fridge.addIngredient("Potato", "Vegetable");
         fridge.getUsersIngredientsName();
         assertEquals(p.getFridge(),"potato | ");
+        shoppingList.getAllIngredients();
+        assertEquals(p.getShoppingList(), "Empty Shopping List. Click Add Ingredient!");
     }
 
     /**
@@ -54,7 +55,25 @@ public class FridgeManagerTest {
     public void testAddWrongIngredient(){
         fridge.addIngredient("Tomato", "Vegetable");
         fridge.getUsersIngredientsName();
-        assertFalse(p.getFridge()=="potato | ");
+        assertNotSame("potato | ", p.getFridge());
+    }
+
+    /**
+     * Test adding an ingredient present in the user's shopping list
+     */
+    @Test
+    public void testAddIngredientInShoppingList(){
+        shoppingList.addItem("Chicken", "Meat");
+        shoppingList.addItem("Radish", "Vegetable");
+        shoppingList.getAllIngredients();
+        assertEquals(p.getShoppingList(), "chicken | radish | ");
+
+        fridge.addIngredient("Chicken", "Meat");
+        fridge.addIngredient("rAdIsH", "Vegetable");
+        fridge.getUsersIngredientsName();
+        assertEquals(p.getFridge(), "chicken | radish | ");
+        shoppingList.getAllIngredients();
+        assertEquals(p.getShoppingList(), "Empty Shopping List. Click Add Ingredient!");
     }
 
     /**

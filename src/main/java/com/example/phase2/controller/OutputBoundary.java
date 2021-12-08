@@ -10,7 +10,7 @@ public interface OutputBoundary {
 
     void updateShoppingList(List<String> shoppingList);
 
-    void updateContainStatus();
+    void updateRemoveStatus(boolean status);
 
     void updateAvailableRecipes(String Recipes);
 

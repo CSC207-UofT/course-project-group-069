@@ -21,10 +21,7 @@ public class RecipeCSV implements RW {
                 String[] row = l.split(",");
                 String name = row[0];
                 String ingred = row[1];
-                String prep = row[2];
-                String dir = row[3];
-                String difficulty = row[4];
-                String cuisine = row[5];
+                String dir = row[2];
 
                 String vertBar = "\\|";
                 List<String> ingredients = new ArrayList<String>(Arrays.asList(ingred.split(vertBar)));

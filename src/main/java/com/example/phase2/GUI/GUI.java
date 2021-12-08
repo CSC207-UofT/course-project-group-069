@@ -3,12 +3,9 @@ package com.example.phase2.GUI;
 import com.example.phase2.controller.Controller;
 import com.example.phase2.controller.Presenter;
 import javafx.application.Application;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
@@ -26,7 +23,7 @@ public class GUI extends Application {
 
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         window = primaryStage;
         window.setTitle("Meals");
 
@@ -38,7 +35,7 @@ public class GUI extends Application {
             controller.loginAction(userNameInput.getText(), passCodeInput.getText());
             {if(!presenter.getLoginStatus()) AlertBox.display("LoginFail", "Login unsuccessful," +
                     " please try again!");}
-            {if(presenter.getLoginStatus()) window.setScene(sceneMainMenu); ;}
+            {if(presenter.getLoginStatus()) window.setScene(sceneMainMenu);}
         });
 
         Button createUserButton = new Button("Create Account");
@@ -74,7 +71,6 @@ public class GUI extends Application {
 
         window.setScene(sceneLogin);
         window.setResizable(false);
-
         window.show();
 
     }

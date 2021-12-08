@@ -18,9 +18,9 @@ import com.example.phase2.use_case.UserShoppingListManager;
 public class Controller {
 
     private final RecipeFacade recipeManager;
-    private UserLoginManager userManager;
-    private UserFridgeManager fridge;
-    private UserShoppingListManager shoppingList;
+    private final UserLoginManager userManager;
+    private final UserFridgeManager fridge;
+    private final UserShoppingListManager shoppingList;
 
     /**
      * Creates an instance of Controller.
@@ -80,14 +80,28 @@ public class Controller {
         fridge.getUsersIngredientsName();
     }
 
+    /**
+     * Asks UserShoppingListManager to add the ingredient with the name itemName to the user's
+     * shopping list.
+     * @param itemName The name of the ingredient to be added to the shopping list.
+     */
     public void addItemAction(String itemName) {
-        this.shoppingList.addIngredient(itemName, "Undeclared");
+        this.shoppingList.addItem(itemName, "Undeclared");
     }
 
+    /**
+     * Asks UserShoppingListManager to remove the ingredient with the name itemName from the user's
+     * shopping list.
+     * @param itemName The name of the ingredient to be removed from the shopping list.
+     */
     public void removeItemAction(String itemName) {
-        this.shoppingList.removeIngredient(itemName);
+        this.shoppingList.removeItem(itemName);
     }
 
+    /**
+     * Asks UserShoppingListManager to save all ingredients in the shopping list in a string
+     * which can be printed in order to view the items in the shopping list.
+     */
     public void viewShoppingListAction() {
         this.shoppingList.getAllIngredients();
     }

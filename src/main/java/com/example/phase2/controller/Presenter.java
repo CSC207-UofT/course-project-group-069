@@ -1,7 +1,5 @@
 package com.example.phase2.controller;
 
-import com.example.phase2.use_case.UserFridgeManager;
-
 import java.util.List;
 
 /**
@@ -15,13 +13,13 @@ public class Presenter implements OutputBoundary {
     private boolean loginStatus = false;
     private String fridgeItems;
     private String shoppingListItems;
-    private boolean containStatus = false;
+    private boolean removeStatus = false;
     private String availableRecipes = "";
     private String recipeDirection = "";
 
     /**
      * get the login status
-     * @return returns tru if a user successfully logged in and false other wise
+     * @return true if a user is successfully logged in and false otherwise.
      */
     public boolean getLoginStatus(){
         return loginStatus;
@@ -49,14 +47,19 @@ public class Presenter implements OutputBoundary {
      */
     public void updateFridge(List<String> fridge){
         fridgeItems = "";
+        StringBuilder fi = new StringBuilder(fridgeItems);
         for (String ing: fridge) {
-            fridgeItems = fridgeItems + ing + " | ";
+            fi.append(ing).append(" | ");
         }
+        fridgeItems = fi.toString();
     }
 
     /**
-     *
-     * @return
+     * Returns a string containing all the ingredients present in the user's shopping list.
+     * If it contains no ingredients, another String is returned, which tells the user their
+     * shopping list is empty.
+     * @return String of all ingredients in the user's shopping list. If the user's shopping list
+     * is empty, another String is returned which tells the user this.
      */
     public String getShoppingList(){
         if (shoppingListItems.isEmpty()){
@@ -66,29 +69,35 @@ public class Presenter implements OutputBoundary {
     }
 
     /**
-     *
-     * @param shoppingList
+     * Saves the ingredients present in the user's shopping list in a string which can later be printed
+     * in order to display the user's shopping list.
+     * @param shoppingList List of ingredients present in the user's shopping list.
      */
     public void updateShoppingList(List<String> shoppingList){
         shoppingListItems = "";
+        StringBuilder sli = new StringBuilder(shoppingListItems);
         for (String ingredient: shoppingList){
-            shoppingListItems += ingredient + " | ";
+            sli.append(ingredient).append(" | ");
         }
+        shoppingListItems = sli.toString();
     }
 
     /**
-     *
-     * @return
+     * Returns a boolean value signifying the success of the action of removing an item from the
+     * user's shopping list.
+     * @return true if an ingredient present in the user's shopping list is successfully removed,
+     * false if the ingredient is not present in the user's shopping list.
      */
-    public boolean getContainStatus() {
-        return containStatus;
+    public boolean getRemoveStatus() {
+        return removeStatus;
     }
 
     /**
-     *
+     * Updates removeStatus to be either true or false.
+     * @param status boolean value provided
      */
-    public void updateContainStatus(){
-        containStatus = !containStatus;
+    public void updateRemoveStatus(boolean status){
+        removeStatus = status;
     }
 
     /**

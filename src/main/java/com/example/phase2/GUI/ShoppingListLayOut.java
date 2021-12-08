@@ -10,6 +10,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 
+/**
+ * A class that sets the layout of the ShoppingListBox screen.
+ */
 public class ShoppingListLayOut {
 
     public Group shoppingListScene(Label ingredientsLabel, Button addIngButton, Button remIngButton,
