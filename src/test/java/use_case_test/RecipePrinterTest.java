@@ -26,19 +26,19 @@ public class RecipePrinterTest {
     public void setUp() {
         recipeprinter = new RecipePrinter();
 
-        List<String> ingredients1 = new ArrayList<String>();
+        List<String> ingredients1 = new ArrayList<>();
         ingredients1.add("apple");
         ingredients1.add("beef");
         ingredients1.add("chicken");
         ingredients1.add("leek");
         recipe1 = new Recipe("recipe1",ingredients1, "");
 
-        List<String> ingredients2 = new ArrayList<String>();
+        List<String> ingredients2 = new ArrayList<>();
         ingredients2.add("chicken");
         ingredients2.add("leek");
         recipe2 = new Recipe("recipe2",ingredients2, "");
 
-        List<String> ingredients3 = new ArrayList<String>();
+        List<String> ingredients3 = new ArrayList<>();
         ingredients3.add("chicken");
         recipe3 = new Recipe("recipe3",ingredients3, "");
 
@@ -66,13 +66,13 @@ public class RecipePrinterTest {
      */
     @Test
     public void testprintDetail(){
-        assertEquals(recipeprinter.printDetail(recipes).equalsIgnoreCase(""), true);
+        assertTrue(recipeprinter.printDetail(recipes).equalsIgnoreCase(""));
         recipes.add(recipe1);
         recipes.add(recipe2);
         recipes.add(recipe3);
 
-        assertEquals(recipeprinter.printDetail(recipes).contains(recipe1.showDetail()), true);
-        assertEquals(recipeprinter.printDetail(recipes).contains(recipe2.showDetail()), true);
-        assertEquals(recipeprinter.printDetail(recipes).contains(recipe3.showDetail()), true);
+        assertTrue(recipeprinter.printDetail(recipes).contains(recipe1.showDetail()));
+        assertTrue(recipeprinter.printDetail(recipes).contains(recipe2.showDetail()));
+        assertTrue(recipeprinter.printDetail(recipes).contains(recipe3.showDetail()));
     }
 }

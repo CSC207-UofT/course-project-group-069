@@ -36,7 +36,7 @@ public class UserLoginManagerTest {
 
     /**
      * resetting the ser file after each test
-     * @throws Exception
+     * @throws Exception Throws IOException or ClassNotFoundException
      */
     @After
     public void tearDown() throws Exception{
@@ -122,7 +122,7 @@ public class UserLoginManagerTest {
         userManager.logOut();
         userManager.login("default", "123");
         fridge.getUsersIngredientsName();
-        assertFalse(p.getFridge() == "potato | ");
+        assertFalse(p.getFridge().equals("potato | "));
     }
 
 
