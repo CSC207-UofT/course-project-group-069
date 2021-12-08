@@ -19,10 +19,8 @@ import static org.junit.Assert.*;
 public class UserLoginManagerTest {
 
     private Presenter p;
-    private RecipeFacade recipeManager;
     private UserLoginManager userManager;
     private UserFridgeManager fridge;
-    private UserShoppingListManager shoppingList;
 
     /**
      * Set up for the test.
@@ -30,9 +28,9 @@ public class UserLoginManagerTest {
     @Before
     public void setUp() {
         p = new Presenter();
-        recipeManager = new RecipeFacade(p);
+        RecipeFacade recipeManager = new RecipeFacade(p);
         fridge = new UserFridgeManager(p);
-        shoppingList = new UserShoppingListManager(p);
+        UserShoppingListManager shoppingList = new UserShoppingListManager(p);
         userManager = new UserLoginManager(fridge, recipeManager, shoppingList, p);
     }
 
@@ -57,7 +55,7 @@ public class UserLoginManagerTest {
     @Test
     public void testLoginSuccess(){
         userManager.login("default", "123");
-        assertEquals(fridge.getCurrentUser().userName, "default");
+        assertEquals(fridge.getCurrentUser().getUserName(), "default");
         assertTrue(p.getLoginStatus());
     }
 
@@ -86,7 +84,7 @@ public class UserLoginManagerTest {
     public void testCreateUser(){
         userManager.createUser("csc207", "123");
         userManager.login("csc207", "123");
-        assertEquals(fridge.getCurrentUser().userName, "csc207");
+        assertEquals(fridge.getCurrentUser().getUserName(), "csc207");
         assertTrue(p.getLoginStatus());
     }
 
@@ -97,7 +95,7 @@ public class UserLoginManagerTest {
     public void testCreateUserDifferentUserName(){
         userManager.createUser("phase2testCreateUser", "Phase2");
         userManager.login("phase2testCreateUser", "Phase2");
-        assertEquals(fridge.getCurrentUser().userName, "phase2testCreateUser");
+        assertEquals(fridge.getCurrentUser().getUserName(), "phase2testCreateUser");
         assertTrue(p.getLoginStatus());
     }
 

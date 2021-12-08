@@ -20,13 +20,7 @@ import javafx.stage.Stage;
 
 public class ViewFridgeBox {
 
-    private static Controller controller;
-    private static Presenter presenter;
-
     public static void display(Controller c, Presenter p) {
-
-        presenter = p;
-        controller = c;
 
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
@@ -45,8 +39,8 @@ public class ViewFridgeBox {
         titleLabel.setLayoutX(170);
         titleLabel.setLayoutY(90);
 
-        controller.viewFridgeAction();
-        String fridge = presenter.getFridge();
+        c.viewFridgeAction();
+        String fridge = p.getFridge();
         Label fridgeLabel = new Label(fridge);
         fridgeLabel.setFont(Font.font("Aralia", FontWeight.BOLD, 15));
         fridgeLabel.setWrapText(true);

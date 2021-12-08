@@ -7,10 +7,9 @@ import java.util.List;
  */
 
 public class Recipe {
-    private String recipeName;
-    private List<String> ingredients;
-    private String directions;
-    // private User inventor; (maybe for later as the project progresses)
+    private final String recipeName;
+    private final List<String> ingredients;
+    private final String directions;
 
     /**
      * the constructor of a recipe based on 6 parameters

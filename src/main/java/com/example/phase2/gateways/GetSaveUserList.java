@@ -10,8 +10,7 @@ public class GetSaveUserList implements ReadWriter {
     public UserList getUserList() throws IOException, ClassNotFoundException {
         FileInputStream fis = new FileInputStream("userlist.ser");
         ObjectInputStream ois = new ObjectInputStream(fis);
-        UserList users = (UserList) ois.readObject();
-        return users;
+        return (UserList) ois.readObject();
     }
 
     @Override

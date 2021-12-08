@@ -28,20 +28,23 @@ public class UserShoppingListManager implements CurrentUserObserver, IngredientS
         if (ingredientName.contains(",")){ //Checks if there are multiple ingredients to add
             String[] items = ingredientName.split(","); //Making an array of all ingredients
 
+            //Add all ingredients to a temporary list
+            List<Ingredient> ingTemp = new ArrayList<>();
             for (String s: items){
                 String item = s.trim();
                 if (!item.isEmpty()){ //Doesn't add empty ingredients to the shopping list
                     String itemLL = item.toLowerCase();
                     Ingredient ing = new Ingredient(itemLL, foodType);
-                    currentUser.shoppingList.add(ing);
+                    ingTemp.add(ing);
                 }
             }
+            currentUser.addToShoppingList(ingTemp);
         }
         else {
             String ingredient_LL = ingredientName.toLowerCase();
             if (!ingredient_LL.isEmpty()) {
                 Ingredient ingredient = new Ingredient(ingredient_LL, foodType);
-                currentUser.shoppingList.add(ingredient);
+                currentUser.addToShoppingList(ingredient);
             }
         }
     }
@@ -54,9 +57,9 @@ public class UserShoppingListManager implements CurrentUserObserver, IngredientS
 
         outputBoundary.updateRemoveStatus(false);
 
-        for (Ingredient ingredient : currentUser.shoppingList) {
+        for (Ingredient ingredient : currentUser.getShoppingList()) {
             if (ingredient.getIngredientName().equalsIgnoreCase(ingredientName)) {
-                currentUser.shoppingList.remove(ingredient);
+                currentUser.removeFromShoppingList(ingredient);
 
                 //This makes removeStatus true, signifying that the ingredient with ingredientName
                 //was in the user's shopping list and has been removed successfully.
@@ -73,7 +76,7 @@ public class UserShoppingListManager implements CurrentUserObserver, IngredientS
     public void getAllIngredients(){
         List<String> items = new ArrayList<>();
 
-        for (Ingredient ingredient : currentUser.shoppingList) {
+        for (Ingredient ingredient : currentUser.getShoppingList()) {
             items.add(ingredient.getIngredientName());
         }
         outputBoundary.updateShoppingList(items);

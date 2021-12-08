@@ -205,7 +205,7 @@ public class ControllerPresenterTest {
         controller.addIngAction("butter", "butter");
         controller.addIngAction("pepper", "pepper");
         controller.getAvailableRecipe();
-        assertEquals(presenter.getAvailableRecipes(), "Banana Ice Cream | Steak | ");
+        assertEquals(presenter.getAvailableRecipes(), "Steak | Banana Ice Cream | ");
     }
 
 

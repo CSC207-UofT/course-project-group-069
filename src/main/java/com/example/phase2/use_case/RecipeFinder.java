@@ -18,7 +18,7 @@ public class RecipeFinder {
      */
     public String Find(List<Recipe> recipes, List<String> fridge){
         RecipePrinter recipePrinter = new RecipePrinter();
-        List<Recipe> res = new ArrayList<Recipe>();
+        List<Recipe> res = new ArrayList<>();
         for (Recipe recipe:recipes){
             if (fridge.containsAll(recipe.getIngredients())){
                 res.add(recipe);
@@ -43,9 +43,9 @@ public class RecipeFinder {
     }
 
     /**
-     * getRecipe used for find a recipe in recipe format, which is pretty similar with FindDetail
-     * @param recipes
-     * @param recipeName
+     * getRecipe used for find a recipe in recipe format, which is pretty similar to FindDetail
+     * @param recipes List of recipes
+     * @param recipeName name of the recipe to be found
      * @return a recipe we find according to recipes and recipeName
      */
     public Recipe getRecipes(List<Recipe> recipes, String recipeName) {
