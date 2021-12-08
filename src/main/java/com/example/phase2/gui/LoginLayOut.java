@@ -1,4 +1,4 @@
-package com.example.phase2.GUI;
+package com.example.phase2.gui;
 
 import javafx.scene.Group;
 import javafx.scene.control.Button;

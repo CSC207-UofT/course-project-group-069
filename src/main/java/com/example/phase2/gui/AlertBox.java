@@ -1,4 +1,4 @@
-package com.example.phase2.GUI;
+package com.example.phase2.gui;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

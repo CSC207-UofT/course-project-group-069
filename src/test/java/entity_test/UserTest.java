@@ -52,8 +52,8 @@ public class UserTest {
     @Test
     public void testGetFridge(){
         assertEquals(user.getFridge(),new ArrayList<String>());
-        user.fridge.add(new Ingredient("egg","meat"));
-        user.fridge.add(new Ingredient("cabbage","vegetable"));
+        user.addToFridge(new Ingredient("egg","meat"));
+        user.addToFridge(new Ingredient("cabbage","vegetable"));
 
         List<String> content = new ArrayList<>();
         content.add("egg");

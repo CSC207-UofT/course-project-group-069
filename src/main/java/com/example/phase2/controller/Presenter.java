@@ -114,7 +114,7 @@ public class Presenter implements OutputBoundary {
      */
     public String getAvailableRecipes(){
         if (availableRecipes.length() == 0){
-            return "No available recipes";
+            return "No available recipes to make, please enter a recipe name to look up details for that recipe";
         }
         else {return availableRecipes;}
     }
