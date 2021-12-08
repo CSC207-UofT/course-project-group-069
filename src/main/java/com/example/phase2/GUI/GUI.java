@@ -1,4 +1,4 @@
-package com.example.phase2.gui;
+package com.example.phase2.GUI;
 
 import com.example.phase2.controller.Controller;
 import com.example.phase2.controller.Presenter;
