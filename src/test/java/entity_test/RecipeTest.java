@@ -19,7 +19,7 @@ public class RecipeTest {
 
     @Before
     public void setUp() {
-        ingredients = new ArrayList<String>();
+        ingredients = new ArrayList<>();
         ingredients.add("egg");
         ingredients.add("chicken");
         recipe = new Recipe("recipe", ingredients, "");

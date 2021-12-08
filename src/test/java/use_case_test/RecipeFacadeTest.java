@@ -3,14 +3,11 @@ package use_case_test;
 import com.example.phase2.entity.Ingredient;
 import com.example.phase2.entity.User;
 import org.junit.*;
-import com.example.phase2.entity.Recipe;
 import com.example.phase2.use_case.RecipeFacade;
 import com.example.phase2.controller.Presenter;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Tests for all methods in RecipeFacade

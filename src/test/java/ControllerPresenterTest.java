@@ -28,7 +28,7 @@ public class ControllerPresenterTest {
 
     /**
      * resetting the ser file after each test
-     * @throws Exception
+     * @throws Exception Throws IOException or ClassNotFoundException
      */
     @After
     public void tearDown() throws Exception{

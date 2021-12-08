@@ -7,4 +7,5 @@ module com.example.phase2 {
     exports com.example.phase2;
     exports com.example.phase2.GUI;
     opens com.example.phase2.GUI to javafx.fxml;
+    exports com.example.phase2.controller;
 }

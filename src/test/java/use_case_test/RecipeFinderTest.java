@@ -27,26 +27,26 @@ public class RecipeFinderTest {
     @Before
     public void setUp() {
         recipefinder = new RecipeFinder();
-        List<String> ingredients1 = new ArrayList<String>();
+        List<String> ingredients1 = new ArrayList<>();
         ingredients1.add("apple");
         ingredients1.add("beef");
         ingredients1.add("chicken");
         ingredients1.add("leek");
         recipe1 = new Recipe("recipe1",ingredients1, "");
 
-        List<String> ingredients2 = new ArrayList<String>();
+        List<String> ingredients2 = new ArrayList<>();
         ingredients2.add("chicken");
         ingredients2.add("leek");
         recipe2 = new Recipe("recipe2",ingredients2, "");
 
-        List<String> ingredients3 = new ArrayList<String>();
+        List<String> ingredients3 = new ArrayList<>();
         ingredients3.add("chicken");
         recipe3 = new Recipe("recipe3",ingredients3, "");
         recipes = new ArrayList<>();
         recipes.add(recipe1);
         recipes.add(recipe2);
         recipes.add(recipe3);
-        fridge = new ArrayList<String>();
+        fridge = new ArrayList<>();
         fridge.add("chicken");
         fridge.add("leek");
         fridge.add("beef");
@@ -77,27 +77,27 @@ public class RecipeFinderTest {
     @Test
     public void testgetRecipe(){
         RecipeFinder recipefinder = new RecipeFinder();
-        List<String> ingredients1 = new ArrayList<String>();
+        List<String> ingredients1 = new ArrayList<>();
         ingredients1.add("apple");
         ingredients1.add("beef");
         ingredients1.add("chicken");
         ingredients1.add("leek");
         Recipe recipe1 = new Recipe("recipe1",ingredients1, "");
 
-        List<String> ingredients2 = new ArrayList<String>();
+        List<String> ingredients2 = new ArrayList<>();
         ingredients2.add("chicken");
         ingredients2.add("leek");
         Recipe recipe2 = new Recipe("recipe2",ingredients2, "");
 
-        List<String> ingredients3 = new ArrayList<String>();
+        List<String> ingredients3 = new ArrayList<>();
         ingredients3.add("chicken");
         Recipe recipe3 = new Recipe("recipe3",ingredients3, "");
 
-        List<Recipe> recipes = new ArrayList<Recipe>();
+        List<Recipe> recipes = new ArrayList<>();
         recipes.add(recipe1);
         recipes.add(recipe2);
         recipes.add(recipe3);
-        List<String> fridge = new ArrayList<String>();
+        List<String> fridge = new ArrayList<>();
         fridge.add("chicken");
         fridge.add("leek");
         fridge.add("beef");
