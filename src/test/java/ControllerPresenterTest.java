@@ -20,15 +20,27 @@ public class ControllerPresenterTest {
     Controller controller;
     Presenter presenter;
 
+    /**
+     * Reset the ser file and set up presenter and controller for the test
+     * @throws Exception throws IOException, and ClassNotFoundException
+     */
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
+        UserList users = new UserList();
+        User user = new User("default", "123");
+        users.add(user);
+
+        FileOutputStream fos = new FileOutputStream("userlist.ser");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(users);
+
         presenter = new Presenter();
         controller = new Controller(presenter);
     }
 
     /**
      * resetting the ser file after each test
-     * @throws Exception
+     * @throws Exception It throws IOException
      */
     @After
     public void tearDown() throws Exception{

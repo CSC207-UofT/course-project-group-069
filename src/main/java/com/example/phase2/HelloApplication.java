@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * This class tests the JavaFX project and make sure JavaFX GUI runs successfully
+ * This class run the JavaFX demo project and make sure JavaFX GUI runs successfully
  */
 
 public class HelloApplication extends Application {
