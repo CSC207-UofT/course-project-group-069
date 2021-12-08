@@ -11,10 +11,10 @@ import java.util.List;
 
 public class User implements Serializable {
 
-    public String userName;
+    private final String userName;
     private final String passcode;
     public List<Ingredient> fridge;
-    public List<Ingredient> shoppingList;
+    private final List<Ingredient> shoppingList;
 
     public User(String username, String password){
         userName = username;
@@ -47,5 +47,37 @@ public class User implements Serializable {
             ingredients.add(ing.getIngredientName());
         }
         return ingredients;
+    }
+
+    /**
+     * Get the user's shopping list. Returns a list containing all the items in the user's shopping list.
+     * @return List of ingredients present in the user's shopping list.
+     */
+    public List<Ingredient> getShoppingList() {
+        return new ArrayList<>(shoppingList);
+    }
+
+    /**
+     * Updates the user's shopping list by adding the given ingredients.
+     * @param items ingredients to be added to the user's shopping list.
+     */
+    public void addToShoppingList(List<Ingredient> items) {
+        shoppingList.addAll(items);
+    }
+
+    /**
+     * Updates the user's shopping list by adding the given ingredient.
+     * @param item ingredient to be added to the user's shopping list.
+     */
+    public void addToShoppingList(Ingredient item){
+        shoppingList.add(item);
+    }
+
+    /**
+     * Updates the user's shopping list by removing the given ingredient.
+     * @param item ingredient to be removed from the user's shopping list.
+     */
+    public void removeFromShoppingList(Ingredient item){
+        shoppingList.remove(item);
     }
 }

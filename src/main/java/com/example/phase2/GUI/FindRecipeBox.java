@@ -61,8 +61,6 @@ public class FindRecipeBox {
 
         FindRecipeLayOut findRecipeLayOut = new FindRecipeLayOut();
 
-        DisplayDirectionLayOut displayDirectionLayOut = new DisplayDirectionLayOut();
-
         sceneFindRecipe = new Scene(findRecipeLayOut.findRecipeScene(availableRecipeLabel, getRecipeNameInput,
                 getDirectionButton, finishButton), 970, 600);
 

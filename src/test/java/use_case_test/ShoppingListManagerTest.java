@@ -14,9 +14,6 @@ import static org.junit.Assert.*;
 public class ShoppingListManagerTest {
 
     private Presenter p;
-    private RecipeFacade recipeManager;
-    private UserLoginManager userManager;
-    private UserFridgeManager fridge;
     private UserShoppingListManager shoppingList;
 
     /**
@@ -25,10 +22,10 @@ public class ShoppingListManagerTest {
     @Before
     public void setUp() {
         p = new Presenter();
-        recipeManager = new RecipeFacade(p);
-        fridge = new UserFridgeManager(p);
+        RecipeFacade recipeManager = new RecipeFacade(p);
+        UserFridgeManager fridge = new UserFridgeManager(p);
         shoppingList = new UserShoppingListManager(p);
-        userManager = new UserLoginManager(fridge, recipeManager, shoppingList, p);
+        UserLoginManager userManager = new UserLoginManager(fridge, recipeManager, shoppingList, p);
         userManager.login("default", "123");
     }
 

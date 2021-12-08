@@ -5,7 +5,6 @@ import com.example.phase2.controller.Presenter;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -15,7 +14,6 @@ import javafx.stage.Stage;
  */
 public class ShoppingListBox {
 
-    private static Scene sceneShoppingList;
     private static Controller controller;
     private static Presenter presenter;
 
@@ -49,7 +47,7 @@ public class ShoppingListBox {
 
         ShoppingListLayOut layOut = new ShoppingListLayOut();
 
-        sceneShoppingList = new Scene(layOut.shoppingListScene(ingredients, addIngButton, remIngButton,
+        Scene sceneShoppingList = new Scene(layOut.shoppingListScene(ingredients, addIngButton, remIngButton,
                 backButton), 900, 600);
 
         window.setScene(sceneShoppingList);

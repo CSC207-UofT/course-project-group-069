@@ -10,10 +10,10 @@ import java.util.List;
 public class RecipeCSV implements RW {
 
     @Override
-    public List<Recipe> getRecipes() throws IOException {
-        List<Recipe> recipes = new ArrayList<Recipe>();
+    public List<Recipe> getRecipes() {
+        List<Recipe> recipes = new ArrayList<>();
         BufferedReader br = null;
-        String l = "";
+        String l;
 
         try {
             br = new BufferedReader(new FileReader("recipes - Sheet1.csv"));
@@ -24,7 +24,7 @@ public class RecipeCSV implements RW {
                 String dir = row[2];
 
                 String vertBar = "\\|";
-                List<String> ingredients = new ArrayList<String>(Arrays.asList(ingred.split(vertBar)));
+                List<String> ingredients = new ArrayList<>(Arrays.asList(ingred.split(vertBar)));
                 recipes.add(new Recipe(name, ingredients, dir));
             }
         } catch (IOException e) {

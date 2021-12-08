@@ -1,13 +1,11 @@
 package com.example.phase2.use_case;
 
 import com.example.phase2.controller.OutputBoundary;
-import com.example.phase2.controller.Presenter;
 import com.example.phase2.entity.User;
 import com.example.phase2.entity.UserList;
 import com.example.phase2.gateways.GetSaveUserList;
 import com.example.phase2.gateways.ReadWriter;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +17,9 @@ import java.util.List;
 public class UserLoginManager {
 
     private User currentUser;
-    private List<CurrentUserObserver> obs = new ArrayList<>();
-    private ReadWriter gateWay = new GetSaveUserList();
-    private OutputBoundary outputBoundary;
+    private final List<CurrentUserObserver> obs = new ArrayList<>();
+    private final ReadWriter gateWay = new GetSaveUserList();
+    private final OutputBoundary outputBoundary;
 
     public UserLoginManager(CurrentUserObserver observerFridge, CurrentUserObserver observerRecipe,
                             CurrentUserObserver observerShoppingList, OutputBoundary presenter){
@@ -49,10 +47,7 @@ public class UserLoginManager {
                 this.notifyObservers(currentUser);
                 outputBoundary.updateLoginStatus();
             }
-        } catch (IOException i) {
-            return;
-        } catch (ClassNotFoundException c){
-            return;
+        } catch (IOException | ClassNotFoundException ignored) {
         }
     }
 
@@ -66,10 +61,7 @@ public class UserLoginManager {
             UserList userList = gateWay.getUserList();
             userList.add(currentUser);
             gateWay.saveUserList(userList);
-        } catch (IOException i){
-            return;
-        } catch (ClassNotFoundException c){
-            return;
+        } catch (IOException | ClassNotFoundException ignored){
         }
     }
 
@@ -87,10 +79,7 @@ public class UserLoginManager {
             User user = new User(username, passcode);
             userList.add(user);
             gateWay.saveUserList(userList);
-        } catch (IOException i){
-            return;
-        } catch (ClassNotFoundException c){
-            return;
+        } catch (IOException | ClassNotFoundException ignored){
         }
     }
 

@@ -8,8 +8,8 @@ import java.io.Serializable;
 
 public class Ingredient implements Serializable {
 
-    private String ingredientName;
-    private String foodType;
+    private final String ingredientName;
+    private final String foodType;
 
     /**
      * Constructs an instance of Ingredient based on Strings of information
@@ -27,14 +27,6 @@ public class Ingredient implements Serializable {
      */
     public String getIngredientName() {
         return ingredientName;
-    }
-
-    /**
-     * foodType getter
-     * @return foodType String
-     */
-    public String getFoodType() {
-        return foodType;
     }
 
     /**

@@ -19,7 +19,7 @@ import java.util.List;
 public class UserFridgeManager implements CurrentUserObserver {
 
     private User currentUser;
-    private OutputBoundary outputBoundary;
+    private final OutputBoundary outputBoundary;
 
     /**
      * Constructor
@@ -44,9 +44,9 @@ public class UserFridgeManager implements CurrentUserObserver {
 
         //Removes the new ingredient from user's shopping list when added to their fridge
         //If the ingredient is not in their shopping list, the list remains unchanged.
-        for (Ingredient ingredient : currentUser.shoppingList) {
+        for (Ingredient ingredient : currentUser.getShoppingList()) {
             if (ingredient.getIngredientName().equalsIgnoreCase(ingredientNL)) {
-                currentUser.shoppingList.remove(ingredient);
+                currentUser.removeFromShoppingList(ingredient);
                 break;
             }
         }

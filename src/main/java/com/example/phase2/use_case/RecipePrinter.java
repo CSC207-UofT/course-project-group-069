@@ -9,12 +9,12 @@ public class RecipePrinter {
      * * @param recipes the recipe list want to be showed in string format
      */
     public String printSimple(List<Recipe> recipes){
-        String recipeItems = "";
+        StringBuilder recipeItems = new StringBuilder();
         for (Recipe recipe: recipes) {
             String recipeName = recipe.getRecipeName();
-            recipeItems = recipeItems + recipeName + " | ";
+            recipeItems.append(recipeName).append(" | ");
         }
-        return recipeItems;
+        return recipeItems.toString();
     }
     /**
      * printDetail is used for user see the detail of a recipe, and so they can know how to cook a meal
@@ -25,7 +25,6 @@ public class RecipePrinter {
         for(Recipe recipe:recipes){
             res.append(recipe.showDetail());
         }
-        String str = res.toString();
-        return str;
+        return res.toString();
     }
 }

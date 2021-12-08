@@ -16,9 +16,7 @@ public class RecipeFacade implements CurrentUserObserver, RecipesGetter{
     public List<Recipe> recipes;
     public User currentUser;
     private final RecipeFinder recipefinder;
-    private final RecipePrinter recipeprinter;
-    private final RW gateway = new RecipeCSV();
-    private OutputBoundary outputBoundary;
+    private final OutputBoundary outputBoundary;
 
     /**
      * Constructor of RecipeFacade
@@ -27,37 +25,14 @@ public class RecipeFacade implements CurrentUserObserver, RecipesGetter{
     public RecipeFacade(OutputBoundary p) {
         this.outputBoundary = p;
         this.recipefinder = new RecipeFinder();
-        this.recipeprinter = new RecipePrinter();
+        RecipePrinter recipeprinter = new RecipePrinter();
         try {
+            RW gateway = new RecipeCSV();
             this.recipes = gateway.getRecipes();
-        } catch (IOException | ClassNotFoundException e) {
-            return;
+        } catch (IOException | ClassNotFoundException ignored) {
         }
     }
 
-//    /**
-//     * set recipes to a list of recipes
-//     * @param recipes2 the recipe want to be copied to our recipes
-//     */
-//    public void setRecipe(List<Recipe> recipes2){
-//        recipebook.setRecipes(recipes, recipes2);
-//    }
-
-//    /**
-//     * add a recipe to our recipes
-//     * @param recipe the recipe want to be added
-//     */
-//    public void addRecipe(Recipe recipe){
-//        recipebook.addRecipe(recipes,recipe);
-//    }
-//
-//    /**
-//     * remove a recipe from our recipes
-//     * @param recipe the recipe want to be removed
-//     */
-//    public void removeRecipe(Recipe recipe){
-//        recipebook.removeRecipe(recipes,recipe);
-//    }
     /**
      * Find all the recipes available to users, all in string format
      */
@@ -75,13 +50,6 @@ public class RecipeFacade implements CurrentUserObserver, RecipesGetter{
          String direction = recipefinder.FindDetail(recipes,name);
          outputBoundary.updateRecipeDirection(direction);
     }
-
-//    public String printSimple(){
-//        return recipeprinter.printSimple(recipes);
-//    }
-//    public String printDetail() {
-//        return recipeprinter.printDetail(recipes);
-//    }
 
     /**
      * make the current user be the user
