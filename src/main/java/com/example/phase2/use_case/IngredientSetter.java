@@ -2,7 +2,7 @@ package com.example.phase2.use_case;
 
 public interface IngredientSetter {
 
-    void addIngredient(String ingredientName, String foodType);
+    void addItem(String ingredientName, String foodType);
 
-    void removeIngredient(String ingredientName);
+    void removeItem(String ingredientName);
 }

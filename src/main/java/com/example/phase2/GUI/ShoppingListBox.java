@@ -9,6 +9,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * A class responsible displaying the items on the user's Shopping List. It also allows the user to
+ * add and remove ingredients from the list.
+ */
 public class ShoppingListBox {
 
     private static Scene sceneShoppingList;

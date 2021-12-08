@@ -12,7 +12,7 @@ import java.util.List;
 public class User implements Serializable {
 
     public String userName;
-    private String passcode;
+    private final String passcode;
     public List<Ingredient> fridge;
     public List<Ingredient> shoppingList;
 
@@ -24,7 +24,7 @@ public class User implements Serializable {
     }
 
     /**
-     * get a user's passcode
+     * Get a user's passcode
      * @return returns a string representing the user's passcode
      */
     public String getPasscode(){
@@ -32,13 +32,13 @@ public class User implements Serializable {
     }
 
     /**
-     * get a user's username
+     * Get a user's username
      * @return returns a string representing the user's username
      */
     public String getUserName() { return userName; }
 
     /**
-     * get a user's fridge
+     * Get a user's fridge
      * @return returns a list of string representing the list of ingredient's in a user's fridge
      */
     public List<String> getFridge(){

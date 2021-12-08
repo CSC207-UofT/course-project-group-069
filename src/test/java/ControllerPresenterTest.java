@@ -98,13 +98,72 @@ public class ControllerPresenterTest {
     }
 
     /**
+     * Test addItemAction() and viewShoppingListAction() when adding one ingredient to the shopping list.
+     */
+    @Test
+    public void testAddItemActionAndViewShoppingListAction(){
+        controller.loginAction("default", "123");
+        controller.addItemAction("apple");
+        controller.viewShoppingListAction();
+        assertEquals(presenter.getShoppingList(),"apple | ");
+    }
+
+    /**
+     * Test addItemAction() and viewShoppingListAction() when adding multiple ingredient to the
+     * shopping list.
+     */
+    @Test
+    public void testAddItemActionAndViewShoppingListActionMultiple(){
+        controller.loginAction("default", "123");
+        controller.addItemAction("apple");
+        controller.addItemAction("papaya");
+        controller.addItemAction("orange");
+        controller.viewShoppingListAction();
+        assertEquals(presenter.getShoppingList(),"apple | papaya | orange | ");
+    }
+
+    /**
+     * Test removeItemAction when provided with the correct ingredient name.
+     */
+    @Test
+    public void testRemoveItemActionSuccess(){
+        controller.loginAction("default", "123");
+        controller.addItemAction("apple");
+        controller.viewShoppingListAction();
+        controller.removeItemAction("apple");
+        controller.viewShoppingListAction();
+        assertEquals(presenter.getShoppingList(), "Empty Shopping List. Click Add Ingredient!");
+        assertTrue(presenter.getRemoveStatus());
+    }
+
+    /**
+     * Test removeItemAction when the user's shopping list is empty and when provided with
+     * the incorrect ingredient name.
+     */
+    @Test
+    public void testRemoveItemActionFailure(){
+        controller.loginAction("default", "123");
+        controller.removeItemAction("apple");
+        controller.viewShoppingListAction();
+        assertEquals(presenter.getShoppingList(), "Empty Shopping List. Click Add Ingredient!");
+        assertFalse(presenter.getRemoveStatus());
+
+        controller.addItemAction("apple");
+        controller.viewShoppingListAction();
+        controller.removeItemAction("banana");
+        controller.viewShoppingListAction();
+        assertEquals(presenter.getShoppingList(), "apple | ");
+        assertFalse(presenter.getRemoveStatus());
+    }
+
+    /**
      * Test getDirectionAction and get recipe direction
      */
     @Test
     public void testGetDirectionAction(){
         controller.getDirectionAction("steak");
         System.out.println(presenter.getRecipeDirection());
-        assertFalse(presenter.getRecipeDirection() == "No directions available");
+        assertNotSame("No directions available", presenter.getRecipeDirection());
     }
 
     /**

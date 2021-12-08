@@ -5,45 +5,84 @@ import com.example.phase2.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
+/**
+ * A class that manages the shopping list of the user that is logged in.
+ */
 public class UserShoppingListManager implements CurrentUserObserver, IngredientSetter {
 
     private User currentUser;
-    private OutputBoundary outputBoundary;
+    private final OutputBoundary outputBoundary;
 
     public UserShoppingListManager(OutputBoundary p) {
         outputBoundary = p;
     }
 
-    public void addIngredient(String ingredientName, String foodType) {
-        String ingredient_LL = ingredientName.toLowerCase();
-        Ingredient ingredient = new Ingredient(ingredient_LL, foodType);
-        currentUser.shoppingList.add(ingredient);
+    /**
+     * Adds ingredients to the user's shopping list when given their name and type.
+     * @param ingredientName name of the ingredient to be added to the shopping list.
+     * @param foodType type of the ingredient to be added to the shopping list.
+     */
+    public void addItem(String ingredientName, String foodType) {
+
+        if (ingredientName.contains(",")){ //Checks if there are multiple ingredients to add
+            String[] items = ingredientName.split(","); //Making an array of all ingredients
+
+            for (String s: items){
+                String item = s.trim();
+                if (!item.isEmpty()){ //Doesn't add empty ingredients to the shopping list
+                    String itemLL = item.toLowerCase();
+                    Ingredient ing = new Ingredient(itemLL, foodType);
+                    currentUser.shoppingList.add(ing);
+                }
+            }
+        }
+        else {
+            String ingredient_LL = ingredientName.toLowerCase();
+            if (!ingredient_LL.isEmpty()) {
+                Ingredient ingredient = new Ingredient(ingredient_LL, foodType);
+                currentUser.shoppingList.add(ingredient);
+            }
+        }
     }
 
-    public void removeIngredient(String ingredientName) {
+    /**
+     * Removes an ingredient from the user's shopping list when given its name.
+     * @param ingredientName name of the ingredient to be removed from the user's shopping list.
+     */
+    public void removeItem(String ingredientName) {
+
+        outputBoundary.updateRemoveStatus(false);
 
         for (Ingredient ingredient : currentUser.shoppingList) {
             if (ingredient.getIngredientName().equalsIgnoreCase(ingredientName)) {
                 currentUser.shoppingList.remove(ingredient);
-                outputBoundary.updateContainStatus();
+
+                //This makes removeStatus true, signifying that the ingredient with ingredientName
+                //was in the user's shopping list and has been removed successfully.
+                outputBoundary.updateRemoveStatus(true);
                 break;
             }
         }
     }
 
+    /**
+     * Gets all the ingredients present in the user's shopping list and updates the shopping list
+     * in the outputBoundary accordingly.
+     */
     public void getAllIngredients(){
         List<String> items = new ArrayList<>();
 
         for (Ingredient ingredient : currentUser.shoppingList) {
             items.add(ingredient.getIngredientName());
         }
-
-
         outputBoundary.updateShoppingList(items);
     }
 
+    /**
+     * Sets the currentUser as the user who is currently logged in.
+     * @param user User who is currently logged in.
+     */
     public void update(User user) {
         currentUser = user;
     }
