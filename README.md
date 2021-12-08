@@ -9,4 +9,4 @@ course-project-group-069 created by GitHub Classroom
 
 #### 4. All files contain Javadoc, so it will be easy to go through the whole project.
 
-### 5. If there are any damages to the serialization database userlist.ser, please run UserListSerialization class located in com.example.phase2 module to reset database. 
+#### 5. If there are any damages to the serialization database userlist.ser, please run UserListSerialization class located in com.example.phase2 module to reset database. 
