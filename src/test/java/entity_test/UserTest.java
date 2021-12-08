@@ -3,7 +3,9 @@ package entity_test;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import com.example.phase2.entity.User;
 import com.example.phase2.entity.Ingredient;
 import static org.junit.Assert.*;
@@ -16,8 +18,11 @@ import java.util.List;
  * Tests for all methods in Recipe
  */
 public class UserTest {
+
+    private User user;
     @Before
     public void setUp() {
+        user = new User("default","123");
     }
 
     @After
@@ -28,7 +33,7 @@ public class UserTest {
      */
     @Test
     public void testgetPasscode(){
-        User user = new User("default","123");
+
         assertEquals(user.getPasscode(),"123");
     }
     /**
@@ -36,7 +41,6 @@ public class UserTest {
      */
     @Test
     public void testgetUserName(){
-        User user = new User("default","123");
         assertEquals(user.getUserName(),"default");
     }
     /**
@@ -44,10 +48,10 @@ public class UserTest {
      */
     @Test
     public void testgetFridge(){
-        User user = new User("default","123");
         assertEquals(user.getFridge(),new ArrayList<String>());
         user.fridge.add(new Ingredient("egg","meat"));
         user.fridge.add(new Ingredient("cabbage","vegetable"));
+
         List<String> content = new ArrayList<>();
         content.add("egg");
         content.add("cabbage");

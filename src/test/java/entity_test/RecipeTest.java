@@ -13,8 +13,16 @@ import java.util.List;
  * Tests for all methods in Recipe
  */
 public class RecipeTest {
+
+    private List<String> ingredients;
+    private Recipe recipe;
+
     @Before
     public void setUp() {
+        ingredients = new ArrayList<String>();
+        ingredients.add("egg");
+        ingredients.add("chicken");
+        recipe = new Recipe("recipe", ingredients, "");
     }
 
     @After
@@ -25,22 +33,14 @@ public class RecipeTest {
      */
     @Test
     public void testgetRecipeName(){
-        List<String> ingredients = new ArrayList<String>();
-        ingredients.add("egg");
-        ingredients.add("chicken");
-        Recipe recipe = new Recipe("recipe", ingredients, "");
-        assertEquals(recipe.getRecipeName().equalsIgnoreCase("recipe"),true);
+        assertTrue(recipe.getRecipeName().equalsIgnoreCase("recipe"));
     }
     /**
      * Test for getIngredients method
      */
     @Test
     public void testgetIngredients(){
-        List<String> ingredients = new ArrayList<String>();
-        ingredients.add("egg");
-        ingredients.add("chicken");
-        Recipe recipe = new Recipe("recipe", ingredients, "");
-        assertEquals(recipe.getIngredients().equals(ingredients),true);
+        assertEquals(recipe.getIngredients(), ingredients);
     }
 
     /**
@@ -48,23 +48,16 @@ public class RecipeTest {
      */
     @Test
     public void testshowSimple(){
-        List<String> ingredients = new ArrayList<String>();
-        ingredients.add("egg");
-        ingredients.add("chicken");
-        Recipe recipe = new Recipe("recipe", ingredients, "");
-        assertEquals(recipe.showSimple().contains("Recipe: recipe\nIngredients: egg, chicken"),true);
+        assertTrue(recipe.showSimple().contains("Recipe: recipe\nIngredients: egg, chicken"));
     }
     /**
      * Test for showDetail method
      */
     @Test
     public void testshowDetail(){
-        List<String> ingredients = new ArrayList<String>();
-        ingredients.add("egg");
-        ingredients.add("chicken");
         Recipe recipe = new Recipe("recipe", ingredients, "");
-        assertEquals(recipe.showDetail().contains("Direction:"),true);
-        assertEquals(recipe.showSimple().contains("Direction:"),false);
+        assertTrue(recipe.showDetail().contains("Direction:"));
+        assertFalse(recipe.showSimple().contains("Direction:"));
     }
 
 
