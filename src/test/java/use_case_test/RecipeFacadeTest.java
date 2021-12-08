@@ -28,9 +28,9 @@ public class RecipeFacadeTest {
         p = new Presenter();
         recipefacade = new RecipeFacade(p);
         user = new User("daniel", "123");
-        user.fridge.add(new Ingredient("meat",""));
-        user.fridge.add(new Ingredient("pepper",""));
-        user.fridge.add(new Ingredient("butter",""));
+        user.addToFridge(new Ingredient("meat",""));
+        user.addToFridge(new Ingredient("pepper",""));
+        user.addToFridge(new Ingredient("butter",""));
         recipefacade.update(user);
     }
 

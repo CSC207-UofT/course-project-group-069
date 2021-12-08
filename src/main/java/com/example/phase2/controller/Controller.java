@@ -129,4 +129,12 @@ public class Controller {
         fridge.Cooked(recipeName, recipeManager);
     }
 
+    /**
+     * Ask FridgeManager to remove a specified ingredient
+     * @param IngName the name of the ingredient
+     */
+    public void removeIngAction(String IngName) {
+        fridge.removeIngredient(IngName);
+    }
+
 }

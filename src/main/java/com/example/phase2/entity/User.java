@@ -13,7 +13,7 @@ public class User implements Serializable {
 
     private final String userName;
     private final String passcode;
-    public List<Ingredient> fridge;
+    private List<Ingredient> fridge;
     private final List<Ingredient> shoppingList;
 
     public User(String username, String password){
@@ -79,5 +79,25 @@ public class User implements Serializable {
      */
     public void removeFromShoppingList(Ingredient item){
         shoppingList.remove(item);
+    }
+
+    /**
+     * Add the given ingredient to user's fridge
+     * @param ing An ingredient object representing an ingredient in the system
+     */
+    public void addToFridge(Ingredient ing) {fridge.add(ing);}
+
+    /**
+     * Returns the fridge of the user
+     * @return A list of ingredient object in a user's fridge
+     */
+    public List<Ingredient> fridgeGetter() {return fridge;}
+
+    /**
+     * remove a given ingredient from user's fridge
+     * @param ing a list of ingredient representing a fridge
+     */
+    public void removeIng(Ingredient ing) {
+        fridge.remove(ing);
     }
 }

@@ -243,4 +243,52 @@ public class ControllerPresenterTest {
         assertEquals(presenter.getFridge(), "Empty Fridge" );
     }
 
+    /**
+     * Test removeIngAction method
+     */
+    @Test
+    public void testRemoveIngAction(){
+        controller.loginAction("default", "123");
+        controller.addIngAction("meat", "meat");
+        controller.removeIngAction("meat");
+        controller.viewFridgeAction();
+        assertEquals(presenter.getFridge(), "Empty Fridge" );
+    }
+
+    /**
+     * Test removeIngAction method with multiple ingredient
+     */
+    @Test
+    public void testRemoveIngActionMultiIng(){
+        controller.loginAction("default", "123");
+        controller.addIngAction("meat", "meat");
+        controller.addIngAction("potato", "vegetable");
+        controller.removeIngAction("meat");
+        controller.viewFridgeAction();
+        assertEquals(presenter.getFridge(), "potato | " );
+    }
+
+    /**
+     * Test removeIngAction method with wrong ingredient
+     */
+    @Test
+    public void testRemoveIngActionWrongIng(){
+        controller.loginAction("default", "123");
+        controller.addIngAction("potato", "vegetable");
+        controller.removeIngAction("meat");
+        controller.viewFridgeAction();
+        assertEquals(presenter.getFridge(), "potato | " );
+    }
+
+    /**
+     * Test removeIngAction method with no ingredient added
+     */
+    @Test
+    public void testRemoveIngActionEmptyIng(){
+        controller.loginAction("default", "123");
+        controller.removeIngAction("meat");
+        controller.viewFridgeAction();
+        assertEquals(presenter.getFridge(), "Empty Fridge" );
+    }
+
 }

@@ -40,7 +40,7 @@ public class UserFridgeManager implements CurrentUserObserver {
     public void addIngredient(String ingredientName, String foodType) {
         String ingredientNL = ingredientName.toLowerCase();
         Ingredient newIngredient = new Ingredient(ingredientNL, foodType);
-        currentUser.fridge.add(newIngredient);
+        currentUser.addToFridge(newIngredient);
 
         //Removes the new ingredient from user's shopping list when added to their fridge
         //If the ingredient is not in their shopping list, the list remains unchanged.
@@ -58,7 +58,7 @@ public class UserFridgeManager implements CurrentUserObserver {
      */
     public void getUsersIngredientsName(){
         List<String> res = new ArrayList<>();
-        for (Ingredient ingredient:currentUser.fridge){
+        for (Ingredient ingredient: currentUser.fridgeGetter()){
             res.add(ingredient.getIngredientName());
         }
         outputBoundary.updateFridge(res);
@@ -100,9 +100,9 @@ public class UserFridgeManager implements CurrentUserObserver {
      * @param ingName Name of the ingredient
      */
     public void removeIngredient(String ingName){
-        for (Ingredient ing: currentUser.fridge){
+        for (Ingredient ing: currentUser.fridgeGetter()){
             if(ing.getIngredientName().equalsIgnoreCase(ingName)) {
-                currentUser.fridge.remove(ing);
+                currentUser.removeIng(ing);
                 break;
             }
         }
