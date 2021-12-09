@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class RecipeCSV implements RW {
+public class RecipeCSV implements ReaderGateway {
 
     @Override
     public List<Recipe> getRecipes() {

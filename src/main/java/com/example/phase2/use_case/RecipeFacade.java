@@ -2,7 +2,8 @@ package com.example.phase2.use_case;
 import com.example.phase2.controller.OutputBoundary;
 import com.example.phase2.entity.Recipe;
 import com.example.phase2.entity.User;
-import com.example.phase2.gateways.RW;
+import com.example.phase2.gateways.ReaderGateway;
+import com.example.phase2.gateways.ReaderGateway;
 import com.example.phase2.gateways.RecipeCSV;
 
 import java.io.IOException;
@@ -27,7 +28,7 @@ public class RecipeFacade implements CurrentUserObserver, RecipesGetter{
         this.recipefinder = new RecipeFinder();
         RecipePrinter recipeprinter = new RecipePrinter();
         try {
-            RW gateway = new RecipeCSV();
+            ReaderGateway gateway = new RecipeCSV();
             this.recipes = gateway.getRecipes();
         } catch (IOException | ClassNotFoundException ignored) {
         }
